@@ -18,34 +18,34 @@ const useStyles = makeStyles((theme) => ({
 function Current() {
     const classes = useStyles();
     return (
-        <Paper className={classes.paper}>
-            <Grid container spacing={1}>
-                <Grid item xs>
-                    <Typography variant="h5" color="textSecondary">My Current Adventure</Typography>
+        <div className={classes.root}>
+            <Paper className={classes.paper}>
+                <Grid container spacing={1}>
+                    <Grid item xs>
+                        <Typography variant="h5" color="textSecondary">My Current Adventure</Typography>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid container spacing={1}>
-                <Grid item xs>
-                    <Typography variant="h4">Destination: </Typography>
+                <Grid container spacing={1}>
+                    <Grid item xs>
+                        <Typography variant="h4">Destination: </Typography>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-                <Grid item xs>
-                    <Typography variant="h5">Start Date: </Typography>
+                <Grid container spacing={2}>
+                    <Grid item xs>
+                        <Typography variant="h5">Start Date: </Typography>
+                    </Grid>
+                    <Grid item xs>
+                        <Typography variant="h5">End Date: </Typography>
+                    </Grid>
                 </Grid>
-                <Grid item xs>
-                    <Typography variant="h5">End Date: </Typography>
+                <Grid container spacing={1}>
+                    <Grid item xs>
+                        <Typography variant="h5">Current Activity: </Typography>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid container spacing={1}>
-                <Grid item xs>
-                    <Typography variant="h5">Current Activity: </Typography>
-                </Grid>
-            </Grid>
-            <CardActions>
                 <Button>Edit Itinerary</Button>
-            </CardActions>
-        </Paper>
+            </Paper>
+        </div>
     );
 }
 
