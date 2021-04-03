@@ -8,18 +8,11 @@ const users = require('./routes/api/users');
 
 //Express Setup
 const app = express();
-//app.use(express.static (__dirname));
-
-// const expressSession = require('express-session')({
-//     secret: 'secret',
-//     resave: false,
-//     saveUninitialized: false
-// });
+app.use(express.static (__dirname));
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ extended: false }));
-//app.use(expressSession);
-//app.use(cors());
+app.use(cors());
 
 //db config
 const db = require("./config/keys").mongoURI;
@@ -33,7 +26,7 @@ mongoose.set('useFindAndModify', false);
 
 //passport middleware setup
 app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.session());
 
 // Passport config
 require("./config/passport")(passport);
