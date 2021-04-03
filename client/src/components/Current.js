@@ -8,13 +8,8 @@ import { CardContent } from '@material-ui/core/';
 import { Button } from '@material-ui/core/';
 
 const useStyles = makeStyles({
-    root: {
-        minwidth: 275
-    },
-
-    title: {
-        fontSize: 14
-    }
+    root: { minwidth: 275 },
+    title: { fontSize: 14 }
 });
 
 function Current() {
@@ -23,6 +18,10 @@ function Current() {
         <Card className={classes.root}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary">My Current Adventure</Typography>
+                <Typography component="h2">Destination: </Typography>
+                <Typography component="h3">Start Date: </Typography>
+                <Typography component="h3">End Date: </Typography>
+                <Typography component="h3">Current Activity: </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">Edit Itinerary</Button>
