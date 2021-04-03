@@ -3,13 +3,17 @@ import React from 'react';
 import Navbar from '../components/Navbar.js';
 import Current from '../components/Current.js';
 import Archive from '../components/Archive.js';
+// Material UI
+import { Container } from '@material-ui/core';
 
 function Dashboard() {
     return (
         <>
             <Navbar />
-            <Current />
-            <Archive />
+            <Container fixed>
+                <Current />
+                <Archive />
+            </Container>
         </>
     );
 }
