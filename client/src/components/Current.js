@@ -21,25 +21,19 @@ function Current() {
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Grid container spacing={1}>
-                    <Grid item xs>
+                    <Grid item xs={12}>
                         <Typography variant="h5" color="textSecondary">My Current Adventure</Typography>
                     </Grid>
-                </Grid>
-                <Grid container spacing={1}>
-                    <Grid item xs>
+                    <Grid item xs={12}>
                         <Typography variant="h4">Destination: </Typography>
                     </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs>
+                    <Grid item xs={6}>
                         <Typography variant="h5">Start Date: </Typography>
                     </Grid>
-                    <Grid item xs>
+                    <Grid item xs={6}>
                         <Typography variant="h5">End Date: </Typography>
                     </Grid>
-                </Grid>
-                <Grid container spacing={1}>
-                    <Grid item xs>
+                    <Grid item xs={12}>
                         <Typography variant="h5">Current Activity: </Typography>
                     </Grid>
                 </Grid>
