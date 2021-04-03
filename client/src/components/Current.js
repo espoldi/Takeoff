@@ -21,9 +21,9 @@ function Current() {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-            <ClassContent>
+            <CardContent>
                 <Typography className={classes.title} color="textSecondary">My Current Adventure</Typography>
-            </ClassContent>
+            </CardContent>
             <CardActions>
                 <Button size="small">Edit Itinerary</Button>
             </CardActions>
