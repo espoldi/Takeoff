@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import SideNav from '../components/SideNav.js';
+// import SideNav from '../components/SideNav.js';
 // Material UI
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar } from "@material-ui/core/";
