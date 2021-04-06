@@ -7,7 +7,7 @@ import Archive from '../components/Archive.js';
 import { Container } from '@material-ui/core';
 
 
-function Dashboard() {
+export default function Dashboard() {
     return (
         <>
             <Navbar />
@@ -18,5 +18,3 @@ function Dashboard() {
         </>
     );
 }
-
-export default Dashboard;
