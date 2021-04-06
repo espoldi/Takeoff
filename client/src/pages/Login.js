@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -60,6 +60,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, SetErrors] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Email: ${email}, password: ${password}, ${errors}`)
+    // const userData = {
+    //   email: this.state.email,
+    //   password: this.state.password
+    // };
+    // console.log(userData);
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -73,7 +86,7 @@ export default function SignInSide() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={onSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -82,8 +95,11 @@ export default function SignInSide() {
               id="email"
               label="Email Address"
               name="email"
+              type="text"
               autoComplete="email"
               autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+              error={errors.email}
             />
             <TextField
               variant="outlined"
@@ -95,6 +111,8 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              error={errors.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
