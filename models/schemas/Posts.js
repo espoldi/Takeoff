@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Create Schema
 const PostSchema = new Schema({
   location: {
     type: String,
@@ -11,7 +12,7 @@ const PostSchema = new Schema({
     required: true
   },
   // image: (type object?)
-  tags: Array,
+  tags: [String]
   rating: Number
 });
 
