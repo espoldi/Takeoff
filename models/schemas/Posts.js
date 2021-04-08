@@ -15,4 +15,4 @@ const PostSchema = new Schema({
   rating: Number
 });
 
-module.exports = Post = mongoose.model('posts', PostSchema);
+module.exports = PostSchema;
