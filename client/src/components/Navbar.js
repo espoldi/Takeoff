@@ -16,8 +16,7 @@ import  {List } from "@material-ui/core/";
 import  {ListItem } from "@material-ui/core/";
 import  {ListItemText } from "@material-ui/core/";
 import  {FlightTakeoffIcon } from "@material-ui/icons/";
-// import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-// import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+
 
 
 
@@ -56,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function ResponsiveDrawer(props) {
+function Navbar(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -65,9 +64,7 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  // const handleDrawerClose = () => {
-  //   setMobileOpen(false);
-  // };
+  
 
   const drawer = (
     <div>
@@ -158,7 +155,7 @@ function ResponsiveDrawer(props) {
   );
 }
 
-ResponsiveDrawer.propTypes = {
+Navbar.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -166,4 +163,4 @@ ResponsiveDrawer.propTypes = {
   window: PropTypes.func
 };
 
-export default ResponsiveDrawer;
+export default Navbar;
