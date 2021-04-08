@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const ItineraryItemSchema = require('./ItineraryItems');
+const PostSchema = require('./Posts');
+
 // Create Schema
 const TripSchema = new Schema({
   tripName: {
@@ -25,6 +28,8 @@ const TripSchema = new Schema({
     // element of array
     enum: ['current','complete','bucketList']
   },
+  itinerary: [ItineraryItemSchema],
+  posts: [PostSchema]
 });
 
 module.exports = TripSchema;
