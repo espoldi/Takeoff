@@ -12,7 +12,7 @@ const PostSchema = new Schema({
     required: true
   },
   // image: (type object?)
-  tags: [String]
+  tags: [String],
   rating: Number
 });
 
