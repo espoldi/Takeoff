@@ -6,7 +6,7 @@ const PostSchema = require('./Posts');
 
 // Create Schema
 const TripSchema = new Schema({
-  tripName: {
+  name: {
     type: String,
     required: true
   },
@@ -14,11 +14,11 @@ const TripSchema = new Schema({
     type: String,
     required: true
   },
-  startDate: {
+  start: {
     type: Date,
     required: true
   },
-  endDate: {
+  end: {
     type: Date,
     required: true
   },
