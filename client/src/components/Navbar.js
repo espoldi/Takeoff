@@ -77,6 +77,10 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.text.primary
+  }
 }));
 
 export default function PersistentDrawerLeft() {
