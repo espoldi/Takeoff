@@ -3,13 +3,56 @@ import React from 'react';
 import Navbar from '../components/Navbar.js';
 // Material UI
 import { Container } from '@material-ui/core';
+import 'date-fns';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 export default function ItineraryCreator() {
-    return(
+    const [selectedStartDate, setSelectedStartDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedEndDate, setSelectedEndDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+    const handleStartDateChange = (date) => {
+        setSelectedStartDate(date);
+    };
+
+    const handleEndDateChange = (date) => {
+        setSelectedEndDate(date);
+    };
+
+    return (
         <>
             <Navbar />
             <Container fixed>
-                
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <Grid container justify="space-around">
+                    <KeyboardDatePicker
+                            margin="normal"
+                            id="starting-date"
+                            label="Start Date"
+                            format="MM/dd/yyyy"
+                            value={selectedStartDate}
+                            onChange={handleStartDateChange}
+                            KeyboardButtonProps={{
+                                'aria-label': 'change date',
+                            }}
+                        />
+                        <KeyboardDatePicker
+                            margin="normal"
+                            id="ending-date"
+                            label="End Date"
+                            format="MM/dd/yyyy"
+                            value={selectedEndDate}
+                            onChange={handleEndDateChange}
+                            KeyboardButtonProps={{
+                                'aria-label': 'change date',
+                            }}
+                        />
+                    </Grid>
+                </MuiPickersUtilsProvider>
             </Container>
         </>
     );
