@@ -9,6 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import Contact from './pages/Contact';
+import BucketList from './pages/BucketList';
 
 class App extends Component {
   componentDidMount() {
@@ -42,6 +43,9 @@ class App extends Component {
             </Route>
             <Route path="/contact">
               <Contact />
+            </Route>
+            <Route path="/bucketlist">
+              <BucketList />
             </Route>
             <Route path="/">
               <Dashboard />
