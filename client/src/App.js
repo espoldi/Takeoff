@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import ItineraryCreator from './pages/ItineraryCreator';
 import Contact from './pages/Contact';
+import BucketList from './pages/BucketList';
 
 class App extends Component {
   componentDidMount() {
@@ -25,7 +26,13 @@ class App extends Component {
             <Route exact path="/register">
               <Register />
             </Route>
-            <Route exact path="/">
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/bucketlist">
+              <BucketList />
+            </Route>
+            <Route path="/">
               <Dashboard />
             </Route>
             <Route exact path="/creator">
