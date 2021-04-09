@@ -1,12 +1,13 @@
 import React from "react";
+// Material UI
 import {
+  Button,
+  Container,
   FormControl,
   InputLabel,
   Input,
-  Button,
   TextField
 } from "@material-ui/core";
-import { Container } from '@material-ui/core';
 
 class Contact extends React.Component {
   render() {

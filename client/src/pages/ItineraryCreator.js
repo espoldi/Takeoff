@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 // Components
 import Navbar from '../components/Navbar.js';
 // Material UI
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import 'date-fns';
-import { Grid } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
