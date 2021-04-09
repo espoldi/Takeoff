@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Contact from './pages/Contact';
 
 class App extends Component {
   componentDidMount() {
@@ -38,6 +39,9 @@ class App extends Component {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/contact">
+              <Contact />
             </Route>
             <Route path="/">
               <Dashboard />
