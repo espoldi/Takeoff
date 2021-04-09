@@ -17,25 +17,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-              <li>
-                <Link to="/creator">Itinerary Creator</Link>
-              </li>
-            </ul>
-          </nav>
-  
-          
           <Switch>
             <Route exact path="/login">
               <Login />
@@ -50,7 +31,6 @@ class App extends Component {
               <ItineraryCreator />
             </Route>
           </Switch>
-        </div>
       </Router>
     );
   }
