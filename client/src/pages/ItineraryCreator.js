@@ -4,24 +4,16 @@ import Navbar from '../components/Navbar.js';
 // Material UI
 import { Container } from '@material-ui/core';
 import 'date-fns';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 export default function ItineraryCreator() {
     const [selectedStartDate, setSelectedStartDate] = React.useState(new Date('2014-08-18T21:11:54'));
     const [selectedEndDate, setSelectedEndDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
-    const handleStartDateChange = (date) => {
-        setSelectedStartDate(date);
-    };
-
-    const handleEndDateChange = (date) => {
-        setSelectedEndDate(date);
-    };
+    const handleStartDateChange = (date) => { setSelectedStartDate(date); };
+    const handleEndDateChange = (date) => { setSelectedEndDate(date); };
 
     return (
         <>
@@ -29,7 +21,7 @@ export default function ItineraryCreator() {
             <Container fixed>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <Grid container justify="space-around">
-                    <KeyboardDatePicker
+                        <KeyboardDatePicker
                             margin="normal"
                             id="starting-date"
                             label="Start Date"
@@ -37,7 +29,7 @@ export default function ItineraryCreator() {
                             value={selectedStartDate}
                             onChange={handleStartDateChange}
                             KeyboardButtonProps={{
-                                'aria-label': 'change date',
+                                'aria-label': 'change start date',
                             }}
                         />
                         <KeyboardDatePicker
@@ -48,7 +40,7 @@ export default function ItineraryCreator() {
                             value={selectedEndDate}
                             onChange={handleEndDateChange}
                             KeyboardButtonProps={{
-                                'aria-label': 'change date',
+                                'aria-label': 'change end date',
                             }}
                         />
                     </Grid>
