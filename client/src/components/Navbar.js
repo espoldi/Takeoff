@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -90,6 +91,7 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
+    <Router>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -127,24 +129,46 @@ export default function PersistentDrawerLeft() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        <Divider />
+        
         <List>
-          {['Dashboard', 'Itinerary Creator', 'My Blog', 'Bucket List'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+          <Link to="/" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Dashboard"}/>
             </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['Meet the Team', 'Contact Us', 'Log Off'].map((text, index) => (
-            <ListItem button key={text}>
-              
-              <ListItemText primary={text} />
+          </Link>
+          <Link to="/ItineraryCreator" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Itinerary Creator"}/>
             </ListItem>
-          ))}
-        </List>
+          </Link>
+          <Link to="/Blog" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"My Blog"}/>
+            </ListItem>
+          </Link>
+          <Link to="/BucketList" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Bucket List"}/>
+            </ListItem>
+          </Link>
+          <Divider />
+          <Link to="/MeetTheTeam" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Meet the Team"}/>
+            </ListItem>
+          </Link>
+          <Link to="/Contact" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Contact Us"}/>
+            </ListItem>
+          </Link>
+         </List>
       </Drawer>
+      <Switch>
+        <Route exact path="/">
+        Dashboard
+        </Route>
+      </Switch>
              
       <main
         className={clsx(classes.content, {
@@ -155,5 +179,6 @@ export default function PersistentDrawerLeft() {
        
       </main>
     </div>
+    </Router>
   );
 }
