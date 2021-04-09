@@ -15,7 +15,7 @@ import  {Hidden } from "@material-ui/core/";
 import  {List } from "@material-ui/core/";
 import  {ListItem } from "@material-ui/core/";
 import  {ListItemText } from "@material-ui/core/";
-import  {FlightTakeoffIcon } from "@material-ui/icons/";
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 
 
