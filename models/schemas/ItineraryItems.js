@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ItineraryItemSchema = new Schema({
-  start: {
+  date: {
     type: Date,
     required: true
   },
-  end: {
-    type: Date,
+  location: {
+    type: String,
     required: true
   },
   activity: {

@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const PostSchema = new Schema({
+  date: {
+    type: Date,
+    required: true
+  },
   location: {
     type: String,
     required: true
