@@ -18,32 +18,34 @@ export default function ItineraryCreator() {
         <>
             <Navbar />
             <Container fixed>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="space-around">
-                        <KeyboardDatePicker
-                            margin="normal"
-                            id="starting-date"
-                            label="Start Date"
-                            format="MM/dd/yyyy"
-                            value={selectedStartDate}
-                            onChange={handleStartDateChange}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change start date',
-                            }}
-                        />
-                        <KeyboardDatePicker
-                            margin="normal"
-                            id="ending-date"
-                            label="End Date"
-                            format="MM/dd/yyyy"
-                            value={selectedEndDate}
-                            onChange={handleEndDateChange}
-                            KeyboardButtonProps={{
-                                'aria-label': 'change end date',
-                            }}
-                        />
-                    </Grid>
-                </MuiPickersUtilsProvider>
+                <form>
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <Grid container justify="space-around">
+                            <KeyboardDatePicker
+                                margin="normal"
+                                id="starting-date"
+                                label="Start Date"
+                                format="MM/dd/yyyy"
+                                value={selectedStartDate}
+                                onChange={handleStartDateChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change start date',
+                                }}
+                            />
+                            <KeyboardDatePicker
+                                margin="normal"
+                                id="ending-date"
+                                label="End Date"
+                                format="MM/dd/yyyy"
+                                value={selectedEndDate}
+                                onChange={handleEndDateChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change end date',
+                                }}
+                            />
+                        </Grid>
+                    </MuiPickersUtilsProvider>
+                </form>
             </Container>
         </>
     );

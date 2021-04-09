@@ -9,6 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import ItineraryCreator from './pages/ItineraryCreator';
+import Contact from './pages/Contact';
 
 class App extends Component {
   componentDidMount() {
