@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Components
 import Navbar from '../components/Navbar.js';
 // Material UI
@@ -9,8 +9,8 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 export default function ItineraryCreator() {
-    const [selectedStartDate, setSelectedStartDate] = React.useState(new Date('2014-08-18T21:11:54'));
-    const [selectedEndDate, setSelectedEndDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
+    const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
 
     const handleStartDateChange = (date) => { setSelectedStartDate(date); };
     const handleEndDateChange = (date) => { setSelectedEndDate(date); };
