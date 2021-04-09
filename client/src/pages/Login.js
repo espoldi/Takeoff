@@ -12,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Link as RouterLink } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -66,12 +66,14 @@ export default function SignInSide() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(`Email: ${email}, password: ${password}, ${errors}`)
-    // const userData = {
-    //   email: this.state.email,
-    //   password: this.state.password
-    // };
-    // console.log(userData);
+    
+    const userData = {
+      email,
+      password
+    }
+
+    console.log(userData);
+    
   };
 
   return (
@@ -98,6 +100,7 @@ export default function SignInSide() {
               type="text"
               autoComplete="email"
               autoFocus
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={errors.email}
             />
@@ -111,6 +114,7 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               error={errors.password}
             />
