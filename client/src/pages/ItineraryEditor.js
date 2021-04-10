@@ -26,7 +26,11 @@ import {
 } from '@material-ui/core';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardTimePicker,
+    KeyboardDatePicker
+} from '@material-ui/pickers';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -55,9 +59,11 @@ export default function ItineraryEditor() {
 
     const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
     const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
+    const [selectedTime, setSelectedTime] = useState(Date.now());
 
     const handleStartDateChange = (date) => { setSelectedStartDate(date); };
     const handleEndDateChange = (date) => { setSelectedEndDate(date); };
+    const handleTimeChange = (date) => { setSelectedTime(date); };
 
     const [itemDate, setItemDate] = useState("");
     const handleItemDateChange = (event) => {
@@ -68,7 +74,7 @@ export default function ItineraryEditor() {
         <Container fixed>
             <h1>Itinerary Editor</h1>
             <Grid container>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                     <Accordion defaultExpanded>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
                             <Typography className={classes.heading}>Basic Trip Settings</Typography>
@@ -152,6 +158,27 @@ export default function ItineraryEditor() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
+                                <Grid item xs={12}>
+                                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                        <KeyboardTimePicker
+                                            margin="normal"
+                                            id="time-picker"
+                                            label="Time picker"
+                                            value={selectedTime}
+                                            onChange={handleTimeChange}
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change time',
+                                            }}
+                                        />
+                                    </MuiPickersUtilsProvider>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        id="itinerary-item"
+                                        label="Activity"
+                                        variant="outlined"
+                                    />
+                                </Grid>
                             </Grid>
                         </AccordionDetails>
                         <Divider />
@@ -162,7 +189,7 @@ export default function ItineraryEditor() {
                     </Accordion>
                 </Grid>
 
-                <Grid item xs={12} md={9}>
+                <Grid item xs={12} md={8}>
                     {/* Insert function to make nested list items for each day in range of start and end dates */}
                 </Grid>
             </Grid>
