@@ -29,15 +29,14 @@ export default function ItineraryEditor() {
 
     const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
     const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
-    const [selectDestination, setSelectedDestination] = "";
 
     const handleStartDateChange = (date) => { setSelectedStartDate(date); };
     const handleEndDateChange = (date) => { setSelectedEndDate(date); };
-    const handleDestinationChange = () => { setSelectedDestination(); };
 
     return (
         <Container fixed>
-            <Accordion defaultExpanded>
+            <h1>Itinerary Editor</h1>
+            <Accordion defaultExpanded={false}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
                     <Typography className={classes.heading}>Basic Trip Settings</Typography>
                 </AccordionSummary>
@@ -45,11 +44,18 @@ export default function ItineraryEditor() {
                     <Grid container>
                         <Grid item xs={12}>
                             <TextField
+                                id="trip-name"
+                                label="Trip Name"
+                                variant="outlined"
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField
                                 id="destination"
                                 label="Destination"
                                 variant="outlined"
-                                value={selectDestination}
-                                onChange={handleDestinationChange} />
+                            />
                         </Grid>
 
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
