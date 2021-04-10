@@ -6,6 +6,7 @@ const keys = require('../config/keys');
 //load input validation 
 const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
+const validatePasswordChange = require('../validation/passwordChange');
 
 module.exports = {
   findAll: function (req, res) {
@@ -110,9 +111,28 @@ module.exports = {
     });
   },
   updatePassword: function (req, res) {
-    db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+    // Form validation
+    const { errors, isValid } = validatePasswordChange(req.body);
+    
+    // Check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    db.User.findById(req.params.id)
+      .then(user => {
+        let password = req.body.password;
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(password, salt, (err, hash) => {
+            if (err) throw err;
+            user.password = hash;
+            user
+              .save()
+              .then(user => res.json(user))
+              .catch(err => console.log(err));
+          });
+        });
+      })
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
