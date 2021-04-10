@@ -1,6 +1,4 @@
 import React from 'react';
-// Components
-import Navbar from '../components/Navbar.js';
 // Material UI
 import {
     Avatar,
@@ -30,7 +28,6 @@ export default function MeetTheTeam() {
     const classes = useStyles();
     return(
         <>
-            <Navbar />
             <Container fixed>
             <div className={classes.root}>
                 <Grid container spacing={4}>

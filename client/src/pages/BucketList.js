@@ -12,8 +12,6 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button'
-// Components
-import Navbar from '../components/Navbar.js';
 // Material UI
 import { Container } from '@material-ui/core';
 
@@ -50,7 +48,6 @@ export default function CheckboxListSecondary() {
 
   return (
     <>
-    <Navbar />
     <Container fixed align="center">
         <h1>My Bucket List</h1>
     <List dense className={classes.root}>

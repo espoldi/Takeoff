@@ -8,13 +8,11 @@ import {
   Input,
   TextField,
 } from "@material-ui/core";
-import Navbar from "../components/Navbar.js";
 
 class Contact extends React.Component {
   render() {
     return (
       <>
-        <Navbar />
         <Container fixed>
           <form style={{ width: "50%" }}>
             <h1>Contact Form</h1>

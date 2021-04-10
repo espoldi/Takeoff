@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// Components
-import Navbar from '../components/Navbar.js';
+// Pages
 import ItineraryEditor from '../pages/ItineraryEditor.js';
 // Material UI
 import {
