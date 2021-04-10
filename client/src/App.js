@@ -26,13 +26,13 @@ class App extends Component {
             <Route exact path="/register">
               <Register />
             </Route>
-            <Route path="/contact">
+            <Route exact path="/contact">
               <Contact />
             </Route>
-            <Route path="/bucketlist">
+            <Route exact path="/bucket-list">
               <BucketList />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Dashboard />
             </Route>
             <Route exact path="/creator">
