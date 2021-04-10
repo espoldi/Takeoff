@@ -4,11 +4,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const passport = require('passport');
-const users = require('./routes/api/users');
+const routes = require('./routes');
 
 //Express Setup
 const app = express();
-app.use(express.static (__dirname));
+app.use(express.static(__dirname));
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ extended: false }));
@@ -18,9 +18,9 @@ app.use(cors());
 const db = require("./config/keys").mongoURI;
 
 //connection to mongoDB
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
-    .then (() => console.log("MongoDB successfully connected"))
-    .catch ((error) => console.log(error.message));
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch((error) => console.log(error.message));
 
 mongoose.set('useFindAndModify', false);
 
@@ -32,7 +32,7 @@ app.use(passport.session());
 require("./config/passport")(passport);
 
 // Routes
-app.use("/api/users", users);
+app.use(routes);
 
 //setting port for server use
 const PORT = process.env.PORT || 3030;
