@@ -7,9 +7,15 @@ import {
     AccordionDetails,
     AccordionSummary,
     Button,
+    Collapse,
     Container,
     Divider,
     Grid,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    ListSubheader,
     TextField,
     Typography
 } from '@material-ui/core';
@@ -21,7 +27,15 @@ import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
-    heading: { fontSize: theme.typography.pxToRem(15) },
+    root: {
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+      },
+      nested: {
+        paddingLeft: theme.spacing(4),
+      },
+    heading: { fontSize: theme.typography.pxToRem(15) }
 }));
 
 export default function ItineraryEditor() {
@@ -36,30 +50,26 @@ export default function ItineraryEditor() {
     return (
         <Container fixed>
             <h1>Itinerary Editor</h1>
-            <Accordion defaultExpanded={false}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
-                    <Typography className={classes.heading}>Basic Trip Settings</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Grid container>
-                        <Grid item xs={12}>
+            <Grid container>
+                <Grid item xs={12} md={3}>
+                    <Accordion defaultExpanded>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                            <Typography className={classes.heading}>Basic Trip Settings</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
                             <TextField
                                 id="trip-name"
                                 label="Trip Name"
                                 variant="outlined"
                             />
-                        </Grid>
 
-                        <Grid item xs={12}>
                             <TextField
                                 id="destination"
                                 label="Destination"
                                 variant="outlined"
                             />
-                        </Grid>
 
-                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <Grid item xs={12}>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <KeyboardDatePicker
                                     margin="normal"
                                     id="starting-date"
@@ -71,9 +81,7 @@ export default function ItineraryEditor() {
                                         'aria-label': 'change start date',
                                     }}
                                 />
-                            </Grid>
 
-                            <Grid item xs={12}>
                                 <KeyboardDatePicker
                                     margin="normal"
                                     id="ending-date"
@@ -85,16 +93,34 @@ export default function ItineraryEditor() {
                                         'aria-label': 'change end date',
                                     }}
                                 />
-                            </Grid>
-                        </MuiPickersUtilsProvider>
-                    </Grid>
-                </AccordionDetails>
-                <Divider />
-                <AccordionActions>
-                    <Button size="small">Cancel</Button>
-                    <Button size="small" color="primary">Save</Button>
-                </AccordionActions>
-            </Accordion>
+                            </MuiPickersUtilsProvider>
+                        </AccordionDetails>
+                        <Divider />
+                        <AccordionActions>
+                            <Button size="small">Cancel</Button>
+                            <Button size="small" color="primary">Save</Button>
+                        </AccordionActions>
+                    </Accordion>
+
+                    <Accordion defaultExpanded>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2-content" id="panel2-header">
+                            <Typography className={classes.heading}>Add New Itinerary Item</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+
+                        </AccordionDetails>
+                        <Divider />
+                        <AccordionActions>
+                            <Button size="small">Cancel</Button>
+                            <Button size="small" color="primary">Save</Button>
+                        </AccordionActions>
+                    </Accordion>
+                </Grid>
+
+                <Grid item xs={12} md={9}>
+                    
+                </Grid>
+            </Grid>
         </Container>
     );
 }
