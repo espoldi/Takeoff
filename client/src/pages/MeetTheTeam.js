@@ -2,13 +2,14 @@ import React from 'react';
 // Components
 import Navbar from '../components/Navbar.js';
 // Material UI
-import { Container } from '@material-ui/core';
+import {
+    Avatar,
+    Container,
+    Grid,
+    IconButton,
+    Paper,
+    Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
-import { Paper } from '@material-ui/core';
-import { Avatar } from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
 import GithubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 

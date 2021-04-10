@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ItineraryCreator from './pages/ItineraryCreator';
 import Contact from './pages/Contact';
 import BucketList from './pages/BucketList';
 
@@ -18,27 +19,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-            </ul>
-          </nav>
-  
-          
           <Switch>
-            <Route path="/login">
+            <Route exact path="/login">
               <Login />
             </Route>
-            <Route path="/register">
+            <Route exact path="/register">
               <Register />
             </Route>
             <Route path="/contact">
@@ -50,8 +35,10 @@ class App extends Component {
             <Route path="/">
               <Dashboard />
             </Route>
+            <Route exact path="/creator">
+              <ItineraryCreator />
+            </Route>
           </Switch>
-        </div>
       </Router>
     );
   }
