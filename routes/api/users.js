@@ -10,8 +10,11 @@ router
 router
   .route('/:id')
   .get(usersController.findById)
-  .post(usersController.login)
   .put(usersController.updatePassword)
   .delete(usersController.remove);
+
+router
+  .route('/login')
+  .post(usersController.login);
 
 module.exports = router;
