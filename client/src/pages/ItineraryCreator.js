@@ -17,9 +17,11 @@ import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 export default function ItineraryCreator() {
     const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
     const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
+    const [selectDestination, setSelectedDestination] = "";
 
     const handleStartDateChange = (date) => { setSelectedStartDate(date); };
     const handleEndDateChange = (date) => { setSelectedEndDate(date); };
+    const handleDestinationChange = () => { setSelectedDestination(); };
 
     return (
         <>
@@ -28,7 +30,12 @@ export default function ItineraryCreator() {
                 <form>
                     <Grid container>
                         <Grid item xs={12}>
-                            <TextField id="destination" label="Destination" variant="outlined" />
+                            <TextField
+                                id="destination"
+                                label="Destination"
+                                variant="outlined"
+                                value={selectDestination}
+                                onChange={handleDestinationChange} />
                         </Grid>
 
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
