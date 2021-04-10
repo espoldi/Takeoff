@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 // Components
 import Navbar from '../components/Navbar.js';
+import ItineraryEditor from '../pages/ItineraryEditor.js';
 // Material UI
 import {
+    Button,
     Container,
     Grid,
     TextField
@@ -10,6 +12,7 @@ import {
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 export default function ItineraryCreator() {
     const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
@@ -42,7 +45,7 @@ export default function ItineraryCreator() {
                                     }}
                                 />
                             </Grid>
-                            
+
                             <Grid item xs={12}>
                                 <KeyboardDatePicker
                                     margin="normal"
@@ -57,6 +60,16 @@ export default function ItineraryCreator() {
                                 />
                             </Grid>
                         </MuiPickersUtilsProvider>
+
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                            startIcon={<FlightTakeoffIcon />}
+                            onClick={() => {
+                                <ItineraryEditor />
+                            }}>Takeoff</Button>
+
                     </Grid>
                 </form>
             </Container>
