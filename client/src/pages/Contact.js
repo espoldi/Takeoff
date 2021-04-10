@@ -6,10 +6,8 @@ import {
   FormControl,
   InputLabel,
   Input,
-  Button,
   TextField,
 } from "@material-ui/core";
-import { Container } from "@material-ui/core";
 import Navbar from "../components/Navbar.js";
 
 class Contact extends React.Component {

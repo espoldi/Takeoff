@@ -1,7 +1,9 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import { BrowserRouter as Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import clsx from "clsx";
 // Material UI
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
   AppBar,
   CssBaseline,
@@ -12,21 +14,20 @@ import {
   ListItem,
   ListItemText,
   Toolbar,
-  Typography } from '@material-ui/core';
-import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
-
+  Typography,
+} from "@material-ui/core";
+import FlightTakeoffIcon from "@material-ui/icons/FlightTakeoff";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -53,32 +54,36 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
   },
+  link: {
+    textDecoration: "none",
+    color: theme.palette.text.primary,
+  },
 }));
 
-export default function PersistentDrawerLeft() {
+export default function Navbar() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -126,35 +131,66 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
-        <Divider />
         <List>
-          {['Dashboard', 'Itinerary Creator', 'My Blog', 'Bucket List'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+          <NavLink to="/" className= { classes.link }>
+            <ListItem button>
+              <ListItemText primary={"Dashboard"} />
             </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['Meet the Team', 'Contact Us', 'Log Off'].map((text, index) => (
-            <ListItem button key={text}>
-              
-              <ListItemText primary={text} />
+          </NavLink>
+          
+          <NavLink
+            to="/creator" className= { classes.link }              >
+            <ListItem button>
+              <ListItemText primary="Itinerary Creator" />
             </ListItem>
-          ))}
+          </NavLink>
+          
+          <NavLink to="/blog" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"My Blog"} />
+            </ListItem>
+          </NavLink>
+          
+          <NavLink to="/bucket-list" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Bucket List"} />
+            </ListItem>
+          </NavLink>
+          
+          <Divider />
+          
+          <NavLink to="/meet-the-team" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Meet the Team"} />
+            </ListItem>
+          </NavLink>
+          
+          <NavLink to="/contact" className={classes.link}>
+            <ListItem button>
+              <ListItemText primary={"Contact Us"} />
+            </ListItem>
+          </NavLink>
+          {/* <NavLink to="/" className={classes.link}> THIS NEEDS TO ROUTE TO LOG OFF */}
+          <ListItem button>
+            <ListItemText primary={"Log Off"} />
+          </ListItem>
+          {/* </NavLink> */}
         </List>
       </Drawer>
-             
+
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
-       
       </main>
     </div>
   );
