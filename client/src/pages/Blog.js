@@ -3,11 +3,9 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 
 export default function Blog() {
-    return(
-        <>
-            <Container fixed>
-                
-            </Container>
-        </>
+    return (
+        <Container fixed>
+
+        </Container>
     );
 }

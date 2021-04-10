@@ -8,11 +8,9 @@ import { Container } from '@material-ui/core';
 
 export default function Dashboard() {
     return (
-        <>
             <Container fixed>
                 <Current />
                 <Archive />
             </Container>
-        </>
     );
 }
