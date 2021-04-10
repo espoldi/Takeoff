@@ -11,8 +11,8 @@ import {
   Link,
   Paper,
   TextField,
-  Typography } from '@material-ui/core/';
-
+  Typography
+} from '@material-ui/core/';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from "react-router-dom";
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage:'url(https://i.pinimg.com/564x/50/fc/da/50fcda2407396ffb89d30fc9e61a40f2.jpg)',
+    backgroundImage: 'url(https://i.pinimg.com/564x/50/fc/da/50fcda2407396ffb89d30fc9e61a40f2.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', 
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -69,14 +69,14 @@ export default function SignInSide() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    
+
     const userData = {
       email,
       password
     }
 
     console.log(userData);
-    
+
   };
 
   return (
