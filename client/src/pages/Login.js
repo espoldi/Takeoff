@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core/';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from "react-router-dom";
+import { loginUser } from '../actions/authActions';
 
 function Copyright() {
   return (
@@ -75,8 +75,9 @@ export default function SignInSide() {
       password
     }
 
-    console.log(userData);
+    loginUser(userData);
 
+    window.location.href = '/dashboard';
   };
 
   return (

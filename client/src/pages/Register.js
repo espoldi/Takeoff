@@ -14,7 +14,7 @@ import {
   Typography } from '@material-ui/core/';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from "react-router-dom";
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -67,7 +67,11 @@ export default function SignUp() {
       password2
     }
 
-    console.log(newUser);
+    axios.post('/api/users', newUser)
+      .then(() => {
+        return window.location.href = '/dashboard';
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -160,7 +164,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="./login" variant="body2">
+              <Link href="/" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
