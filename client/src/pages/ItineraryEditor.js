@@ -11,14 +11,14 @@ import {
     Container,
     Divider,
     FormControl,
-    FormHelperText,
     Grid,
+    IconButton,
     InputLabel,
     List,
     ListItem,
     ListItemIcon,
+    ListItemSecondaryAction,
     ListItemText,
-    ListSubheader,
     MenuItem,
     Select,
     TextField,
@@ -32,13 +32,15 @@ import {
     KeyboardDatePicker
 } from '@material-ui/pickers';
 import { makeStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import EditIcon from '@material-ui/icons/Edit';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        maxWidth: 360,
+        marginLeft: theme.spacing(1),
         backgroundColor: theme.palette.background.paper,
     },
     nested: {
@@ -70,13 +72,17 @@ export default function ItineraryEditor() {
         setItemDate(event.target.value);
     };
 
+    const [open, setOpen] = useState(true);
+    const handleListClick = () => { setOpen(!open); };
+
+
     return (
         <Container fixed>
             <h1>Itinerary Editor</h1>
             <Grid container>
                 <Grid item xs={12} md={4}>
                     <Accordion defaultExpanded>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                        <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1-content" id="panel1-header">
                             <Typography className={classes.heading}>Basic Trip Settings</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -134,7 +140,7 @@ export default function ItineraryEditor() {
                     </Accordion>
 
                     <Accordion defaultExpanded>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2-content" id="panel2-header">
+                        <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel2-content" id="panel2-header">
                             <Typography className={classes.heading}>Add New Itinerary Item</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -191,6 +197,38 @@ export default function ItineraryEditor() {
 
                 <Grid item xs={12} md={8}>
                     {/* Insert function to make nested list items for each day in range of start and end dates */}
+                    <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
+
+                        <ListItem button>
+                            <ListItemText primary="4/10/2021" />
+                        </ListItem>
+
+                        <ListItem button>
+                            <ListItemText primary="4/11/2021" />
+                        </ListItem>
+
+                        <ListItem button onClick={handleListClick}>
+                            <ListItemText primary="4/12/2021" />
+                            {open ? <ExpandLess /> : <ExpandMore />}
+                        </ListItem>
+
+                        <Collapse in={open} timeout="auto" unmountOnExit>
+                            <List component="div" disablePadding>
+                                <ListItem button className={classes.nested}>
+                                    <ListItemIcon>
+                                        <ChevronRightIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="New Activity Listing" />
+                                    <ListItemSecondaryAction>
+                                        <IconButton edge="end" aria-label="edit">
+                                            <EditIcon />
+                                        </IconButton>
+                                    </ListItemSecondaryAction>
+                                </ListItem>
+                            </List>
+                        </Collapse>
+                    </List>
+
                 </Grid>
             </Grid>
         </Container>
