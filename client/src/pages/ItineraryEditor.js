@@ -220,7 +220,8 @@ export default function ItineraryEditor() {
                                     </ListItemIcon>
                                     <ListItemText primary="New Activity Listing" />
                                     <ListItemSecondaryAction>
-                                        <IconButton edge="end" aria-label="edit">
+                                        <IconButton edge="end" aria-label="edit"
+                                            onClick={() => { alert('clicked') }}>
                                             <EditIcon />
                                         </IconButton>
                                     </ListItemSecondaryAction>
