@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ItineraryCreator from './pages/ItineraryCreator';
+import ItineraryEditor from './pages/ItineraryEditor';
 import Blog from './pages/Blog';
 import BucketList from './pages/BucketList';
 import MeetTheTeam from './pages/MeetTheTeam';
@@ -40,6 +41,10 @@ class App extends Component {
           <Route exact path="/creator">
             <Navbar />
             <ItineraryCreator />
+          </Route>
+          <Route exact path="/editor">
+            <Navbar />
+            <ItineraryEditor />
           </Route>
           <Route exact path="/blog">
             <Navbar />

@@ -14,13 +14,13 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/picker
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 export default function ItineraryCreator() {
+
     const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
     const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
-    const [selectDestination, setSelectedDestination] = "";
 
     const handleStartDateChange = (date) => { setSelectedStartDate(date); };
     const handleEndDateChange = (date) => { setSelectedEndDate(date); };
-    const handleDestinationChange = () => { setSelectedDestination(); };
+
 
     return (
         <Container fixed>
@@ -28,15 +28,22 @@ export default function ItineraryCreator() {
                 <Grid container>
                     <Grid item xs={12}>
                         <TextField
+                            id="trip-name"
+                            label="Trip Name"
+                            variant="outlined"
+                        />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <TextField
                             id="destination"
                             label="Destination"
                             variant="outlined"
-                            value={selectDestination}
-                            onChange={handleDestinationChange} />
+                        />
                     </Grid>
 
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
                             <KeyboardDatePicker
                                 margin="normal"
                                 id="starting-date"
@@ -50,7 +57,7 @@ export default function ItineraryCreator() {
                             />
                         </Grid>
 
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
                             <KeyboardDatePicker
                                 margin="normal"
                                 id="ending-date"
@@ -71,7 +78,8 @@ export default function ItineraryCreator() {
                         size="large"
                         startIcon={<FlightTakeoffIcon />}
                         onClick={() => {
-                            <ItineraryEditor />
+                            // Insert functionality to save form data above
+                            // Insert link to editor with saved data above
                         }}>Takeoff</Button>
 
                 </Grid>
