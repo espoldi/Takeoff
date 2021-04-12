@@ -21,6 +21,7 @@ import {
     ListItemText,
     MenuItem,
     Select,
+    Snackbar,
     TextField,
     Typography
 } from '@material-ui/core';
@@ -36,6 +37,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import EditIcon from '@material-ui/icons/Edit';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -72,9 +74,22 @@ export default function ItineraryEditor() {
         setItemDate(event.target.value);
     };
 
-    const [open, setOpen] = useState(true);
-    const handleListClick = () => { setOpen(!open); };
+    const [listOpen, setListOpen] = useState(true);
 
+    const handleListClick = () => {
+        setListOpen(true);
+    };
+
+
+    const [addListOpen, setAddListOpen] = useState(false);
+    const handleAddListClick = () => { setAddListOpen(true); };
+
+    const handleAddListClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setAddListOpen(false);
+    };
 
     return (
         <Container fixed>
@@ -190,7 +205,27 @@ export default function ItineraryEditor() {
                         <Divider />
                         <AccordionActions>
                             <Button size="small">Cancel</Button>
-                            <Button size="small" color="primary">Save</Button>
+                            <Button size="small" color="primary"
+                                onClick={handleAddListClick}>Save</Button>
+                            <Snackbar
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                open={addListOpen}
+                                autoHideDuration={2000}
+                                onClose={handleAddListClose}
+                                message="Note archived"
+                                action={
+                                    <React.Fragment>
+                                        <Button color="secondary" size="small" onClick={handleAddListClose}>
+                                            UNDO</Button>
+                                        <IconButton size="small" aria-label="close" color="inherit" onClick={handleAddListClose}>
+                                            <CloseIcon fontSize="small" />
+                                        </IconButton>
+                                    </React.Fragment>
+                                }
+                            />
                         </AccordionActions>
                     </Accordion>
                 </Grid>
@@ -209,10 +244,10 @@ export default function ItineraryEditor() {
 
                         <ListItem button onClick={handleListClick}>
                             <ListItemText primary="4/12/2021" />
-                            {open ? <ExpandLess /> : <ExpandMore />}
+                            {listOpen ? <ExpandLess /> : <ExpandMore />}
                         </ListItem>
 
-                        <Collapse in={open} timeout="auto" unmountOnExit>
+                        <Collapse in={listOpen} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
                                 <ListItem button className={classes.nested}>
                                     <ListItemIcon>
