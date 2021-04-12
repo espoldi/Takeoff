@@ -61,21 +61,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const initialState = { email: '', password: ''};
+
 export default function SignInSide() {
   const classes = useStyles();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState(initialState);
   const [errors, SetErrors] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const userData = {
-      email,
-      password
-    }
+    // const userData = {
+    //   email,
+    //   password
+    // }
 
-    loginUser(userData);
+    loginUser(formData);
 
     window.location.href = '/dashboard';
   };
@@ -104,8 +105,7 @@ export default function SignInSide() {
               type="text"
               autoComplete="email"
               autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value })}
               error={errors.email}
             />
             <TextField
@@ -118,8 +118,7 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value })}
               error={errors.password}
             />
             <FormControlLabel
