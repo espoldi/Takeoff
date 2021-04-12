@@ -14,7 +14,7 @@ import {
   Typography } from '@material-ui/core/';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from "react-router-dom";
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -49,25 +49,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const initialState = { name: '', email: '', password: '', password2: ''};
+
 export default function SignUp() {
   const classes = useStyles();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
   const [errors, SetErrors] = useState("");
+  const [formData, setFormData] = useState(initialState);
 
   const onSubmit = (e) => {
     e.preventDefault();
     
-    const newUser = {
-      name,
-      email,
-      password,
-      password2
-    }
-
-    console.log(newUser);
+    console.log(formData);
+    axios.post('/api/users', formData)
+      .then(() => {
+        return window.location.href = '/dashboard';
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -93,8 +90,7 @@ export default function SignUp() {
                 id="name"
                 label="Your Name"
                 autoFocus
-                onChange={(e) => setName(e.target.value)}
-                value={name}
+                onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value })}
                 error={errors.name}
               />
             </Grid>
@@ -107,8 +103,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value })}
                 error={errors.email}
               />
             </Grid>
@@ -122,8 +117,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
+                onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value })}
                 error={errors.password}
               />
             </Grid>
@@ -137,8 +131,7 @@ export default function SignUp() {
                 type="password"
                 id="password2"
                 autoComplete="current-password"
-                onChange={(e) => setPassword2(e.target.value)}
-                value={password2}
+                onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value })}
                 error={errors.password2}
               />
             </Grid>
@@ -160,7 +153,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="./login" variant="body2">
+              <Link href="/" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
