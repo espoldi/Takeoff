@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 // Material UI
 import {
+    Button,
     Collapse,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
     IconButton,
     List,
     ListItem,
     ListItemIcon,
     ListItemSecondaryAction,
-    ListItemText
+    ListItemText,
+    useMediaQuery
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+    useTheme,
+    makeStyles
+} from '@material-ui/core/styles';
 import {
     ChevronRight,
     Edit,
@@ -31,10 +41,20 @@ const useStyles = makeStyles((theme) => ({
 export default function Itinerary() {
     const classes = useStyles();
 
-    // Handler for opening and closing itinerary dates
-    const [open, setOpen] = useState(true);
-    const handleClick = () => { setOpen(!open); };
+    // Pop Up Editor Responsiveness
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
+    // Handler for opening and closing itinerary dates
+    const [itemOpen, setItemOpen] = useState(true);
+    const handleItemClick = () => { setItemOpen(!itemOpen); };
+
+    // Handler for Pop Up editor
+    const [editOpen, setEditOpen] = useState(false);
+
+    const handleEditClickOpen = () => {setEditOpen(true);};
+  
+    const handleEditClose = () => {setEditOpen(false);};
 
     return (
         <>
@@ -45,11 +65,11 @@ export default function Itinerary() {
                 className={classes.root}
             >
                 {/* Insert function to make nested list items for each day in range of start and end dates */}
-                <ListItem button onClick={handleClick}>
+                <ListItem button onClick={handleItemClick}>
                     <ListItemText primary="Insert Itinerary Date" />
-                    {open ? <ExpandLess /> : <ExpandMore />}
+                    {itemOpen ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse in={open} timeout="auto" unmountOnExit>
+                <Collapse in={itemOpen} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <ListItem button className={classes.nested}>
                             <ListItemIcon>
@@ -58,9 +78,32 @@ export default function Itinerary() {
                             <ListItemText primary="Insert Event Activity Text" />
                             <ListItemSecondaryAction>
                                 <IconButton edge="end" aria-label="edit"
-                                    onClick={() => { alert('clicked') }}>
+                                    onClick={handleEditClickOpen}>
                                     <Edit />
                                 </IconButton>
+                                <Dialog
+                                    fullScreen={fullScreen}
+                                    open={editOpen}
+                                    onClose={handleEditClose}
+                                    aria-labelledby="alert-dialog-title"
+                                    aria-describedby="alert-dialog-description"
+                                >
+                                    <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText id="alert-dialog-description">
+                                            Let Google help apps determine location. This means sending anonymous location data to
+                                            Google, even when no apps are running.
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={handleEditClose} color="primary">
+                                            Disagree
+                                        </Button>
+                                        <Button onClick={handleEditClose} color="primary" autoFocus>
+                                            Agree
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog>
                             </ListItemSecondaryAction>
                         </ListItem>
                     </List>
