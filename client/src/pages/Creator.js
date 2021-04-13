@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // Pages
-import ItineraryEditor from '../pages/ItineraryEditor.js';
+import Editor from './Editor.js';
 // Material UI
 import {
     Button,

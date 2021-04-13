@@ -5,11 +5,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const passport = require('passport');
 const routes = require('./routes');
+const blogRoutes = require('./routes/api/posts');
 
 //Express Setup
 const app = express();
 app.use(express.static(__dirname));
 
+app.use('/posts', blogRoutes);
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());

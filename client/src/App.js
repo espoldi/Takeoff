@@ -9,8 +9,8 @@ import Navbar from './components/Navbar';
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import ItineraryCreator from './pages/ItineraryCreator';
-import ItineraryEditor from './pages/ItineraryEditor';
+import Creator from './pages/Creator';
+import Editor from './pages/Editor';
 import Blog from './pages/Blog';
 import BucketList from './pages/BucketList';
 import MeetTheTeam from './pages/MeetTheTeam';
@@ -58,8 +58,8 @@ class App extends Component {
 
               {/* Private Routes */}
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/creator" component={ItineraryCreator} />
-              <PrivateRoute exact path="/editor" component={ItineraryEditor} />
+              <PrivateRoute exact path="/creator" component={Creator} />
+              <PrivateRoute exact path="/editor" component={Editor} />
               <PrivateRoute exact path="/blog" component={Blog} />
               <PrivateRoute exact path="/bucket-list" component={BucketList} />
               <PrivateRoute exact path="/meet-the-team" component={MeetTheTeam} />
