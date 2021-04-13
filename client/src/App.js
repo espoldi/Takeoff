@@ -37,7 +37,7 @@ if (localStorage.jwtToken) {
   const currentTime = Date.now() / 1000;
   if (decoded.exp < currentTime) {
     store.dispatch(logoutUser());
-    window.location.href = "./login";
+    window.location.href = "/";
   }
 }
 
@@ -57,13 +57,13 @@ class App extends Component {
               <Navbar />
 
               {/* Private Routes */}
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/creator" component={Creator} />
-              <Route exact path="/editor" component={Editor} />
-              <Route exact path="/blog" component={Blog} />
-              <Route exact path="/bucket-list" component={BucketList} />
-              <Route exact path="/meet-the-team" component={MeetTheTeam} />
-              <Route exact path="/contact" component={Contact} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/creator" component={Creator} />
+              <PrivateRoute exact path="/editor" component={Editor} />
+              <PrivateRoute exact path="/blog" component={Blog} />
+              <PrivateRoute exact path="/bucket-list" component={BucketList} />
+              <PrivateRoute exact path="/meet-the-team" component={MeetTheTeam} />
+              <PrivateRoute exact path="/contact" component={Contact} />
             </div>
           </Switch>
         </Router>
