@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 // Material UI
 import {
   Avatar,
@@ -9,27 +11,16 @@ import {
   CssBaseline,
   FormControlLabel,
   Grid,
-  Link,
   TextField,
-  Typography } from '@material-ui/core/';
+  Typography
+} from '@material-ui/core/';
+import Copyright from '../components/Copyright';
+import PropTypes from 'prop-types';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { makeStyles } from '@material-ui/core/styles';
-import axios from 'axios';
+import { createStyles, withStyles } from '@material-ui/core/styles';
+import { registerUser } from '../actions/authActions';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Take Off
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => createStyles({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -47,133 +38,165 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+});
 
-export default function SignUp() {
-  const classes = useStyles();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
-  const [errors, SetErrors] = useState("");
+class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {}
+    };
+  }
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    
-    const newUser = {
-      name,
-      email,
-      password,
-      password2
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
     }
+  }
 
-    axios.post('/api/users', newUser)
-      .then(() => {
-        return window.location.href = '/dashboard';
-      })
-      .catch(err => console.log(err));
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
   };
 
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
+  onSubmit = e => {
+    e.preventDefault();
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+    };
+    this.props.registerUser(newUser, this.props.history);
+  };
 
-        <form className={classes.form} noValidate onSubmit={onSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="name"
-                name="name"
-                variant="outlined"
-                required
-                fullWidth
-                id="name"
-                label="Your Name"
-                autoFocus
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                error={errors.name}
-              />
+  render() {
+    const { classes } = this.props;
+    return (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+
+          <form className={classes.form} noValidate onSubmit={this.onSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="name"
+                  name="name"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="name"
+                  label="Your Name"
+                  autoFocus
+                  onChange={this.onChange}
+                  error={this.state.errors.name}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  onChange={this.onChange}
+                  error={this.state.errors.email}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  onChange={this.onChange}
+                  error={this.state.errors.password}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password2"
+                  label="Confirm Password"
+                  type="password"
+                  id="password2"
+                  autoComplete="current-password"
+                  onChange={this.onChange}
+                  error={this.state.errors.password2}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                error={errors.email}
-              />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link to="/">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                error={errors.password}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password2"
-                label="Confirm Password"
-                type="password"
-                id="password2"
-                autoComplete="current-password"
-                onChange={(e) => setPassword2(e.target.value)}
-                value={password2}
-                error={errors.password2}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
+          </form>
+        </div>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+    );
+  }
 }
+
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(withStyles(styles)(Register)));
