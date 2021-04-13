@@ -29,7 +29,7 @@ const TripSchema = new Schema({
     enum: ['current','complete','bucketList']
   },
   itinerary: [ItineraryItemSchema],
-  posts: [PostSchema]
+  //posts: [PostSchema]
 });
 
 module.exports = TripSchema;
