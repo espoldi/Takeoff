@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 // Material UI
 import {
     Accordion,
@@ -33,11 +32,12 @@ import {
     KeyboardDatePicker
 } from '@material-ui/pickers';
 import { makeStyles } from '@material-ui/core/styles';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import EditIcon from '@material-ui/icons/Edit';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import CloseIcon from '@material-ui/icons/Close';
+import {
+    ChevronRight,
+    Close,
+    Edit,
+    ExpandLess,
+    ExpandMore} from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -221,7 +221,7 @@ export default function ItineraryEditor() {
                                         <Button color="secondary" size="small" onClick={handleAddListClose}>
                                             UNDO</Button>
                                         <IconButton size="small" aria-label="close" color="inherit" onClick={handleAddListClose}>
-                                            <CloseIcon fontSize="small" />
+                                            <Close fontSize="small" />
                                         </IconButton>
                                     </React.Fragment>
                                 }
@@ -251,13 +251,13 @@ export default function ItineraryEditor() {
                             <List component="div" disablePadding>
                                 <ListItem button className={classes.nested}>
                                     <ListItemIcon>
-                                        <ChevronRightIcon />
+                                        <ChevronRight />
                                     </ListItemIcon>
                                     <ListItemText primary="New Activity Listing" />
                                     <ListItemSecondaryAction>
                                         <IconButton edge="end" aria-label="edit"
                                             onClick={() => { alert('clicked') }}>
-                                            <EditIcon />
+                                            <Edit />
                                         </IconButton>
                                     </ListItemSecondaryAction>
                                 </ListItem>
