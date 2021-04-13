@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 // Material UI
 import {
     Collapse,
-    Grid,
     IconButton,
     List,
     ListItem,
@@ -27,52 +26,36 @@ const useStyles = makeStyles((theme) => ({
     nested: {
         paddingLeft: theme.spacing(4),
     },
-    heading: { fontSize: theme.typography.pxToRem(15) },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
 }));
 
 export default function Itinerary() {
     const classes = useStyles();
 
-    const [listOpen, setListOpen] = useState(true);
-
-    const handleListClick = () => {
-        setListOpen(true);
-    };
-
+    // Handler for opening and closing itinerary dates
+    const [open, setOpen] = useState(true);
+    const handleClick = () => { setOpen(!open); };
 
 
     return (
         <>
-            {/* Insert function to make nested list items for each day in range of start and end dates */}
-            <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
 
-                <ListItem button>
-                    <ListItemText primary="4/10/2021" />
+            <List
+                component="itinerary"
+                aria-labelledby="nested-itinerary-events"
+                className={classes.root}
+            >
+                {/* Insert function to make nested list items for each day in range of start and end dates */}
+                <ListItem button onClick={handleClick}>
+                    <ListItemText primary="Insert Itinerary Date" />
+                    {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-
-                <ListItem button>
-                    <ListItemText primary="4/11/2021" />
-                </ListItem>
-
-                <ListItem button onClick={handleListClick}>
-                    <ListItemText primary="4/12/2021" />
-                    {listOpen ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-
-                <Collapse in={listOpen} timeout="auto" unmountOnExit>
+                <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <ListItem button className={classes.nested}>
                             <ListItemIcon>
                                 <ChevronRight />
                             </ListItemIcon>
-                            <ListItemText primary="New Activity Listing" />
+                            <ListItemText primary="Insert Event Activity Text" />
                             <ListItemSecondaryAction>
                                 <IconButton edge="end" aria-label="edit"
                                     onClick={() => { alert('clicked') }}>
