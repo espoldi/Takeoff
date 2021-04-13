@@ -3,21 +3,21 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const PostSchema = new Schema({
-  date: {
-    type: Date,
-    required: true
-  },
-  location: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  // image: (type object?)
-  tags: [String],
-  rating: Number
-});
+    title:  String,
+    message: String,
+    creator: String,
+    tags: [String],
+    selectedFile: String,
+    likeCount: {
+        type: Number,
+        default:  0
+    },
+    createdAt: {
+      type: Date,
+      default: new Date()
+    }
+  });
 
-module.exports = PostSchema;
+const Posts = mongoose.model("Posts", PostSchema);
+
+module.exports = Posts;
