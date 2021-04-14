@@ -85,22 +85,22 @@ export default function Itinerary() {
                                     fullScreen={fullScreen}
                                     open={editOpen}
                                     onClose={handleEditClose}
-                                    aria-labelledby="alert-dialog-title"
-                                    aria-describedby="alert-dialog-description"
+                                    aria-labelledby="itinerary-item-editor"
+                                    aria-describedby="itinerary-item-description"
                                 >
-                                    <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                                    <DialogTitle id="editor-title">{"Itinerary Point Editor"}</DialogTitle>
                                     <DialogContent>
-                                        <DialogContentText id="alert-dialog-description">
+                                        <DialogContentText id="itinerary-item-description">
                                             Let Google help apps determine location. This means sending anonymous location data to
                                             Google, even when no apps are running.
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
                                         <Button onClick={handleEditClose} color="primary">
-                                            Disagree
+                                            Cancel
                                         </Button>
                                         <Button onClick={handleEditClose} color="primary" autoFocus>
-                                            Agree
+                                            Save
                                         </Button>
                                     </DialogActions>
                                 </Dialog>
