@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Tooltip } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -21,9 +21,11 @@ const Post = ({ post, setCurrentId }) => {
                 <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
             </div>
             <div className={classes.overlay2}>
+            <Tooltip title="Edit" aria-label="edit">
                 <Button style={{color: 'white'}} size="small" onClick={()=> { setCurrentId(post._id)}} >
                     <MoreHorizIcon fontSize="default" />
                 </Button>
+                </Tooltip>
             </div>
             <div className={classes.details}>
                 <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => `#${tag} `)}</Typography>
@@ -33,15 +35,19 @@ const Post = ({ post, setCurrentId }) => {
                 <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
+                <Tooltip title="Star" aria-label="star">
                 <Button size="small" color="primary" onClick={()=> dispatch(starPost(post._id))}>
                     <StarIcon fontSize="small" />
                     &nbsp; &nbsp;
                     {post.rating}
                 </Button>
+                </Tooltip>
+                <Tooltip title="Delete" aria-label="Delete">
                 <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize="small" />
                     Delete
                 </Button>
+                </Tooltip>
             </CardActions>
         </Card>
     );
