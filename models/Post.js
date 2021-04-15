@@ -8,7 +8,7 @@ const PostSchema = new Schema({
     creator: String,
     tags: [String],
     selectedFile: String,
-    likeCount: {
+    rating: {
         type: Number,
         default:  0
     },
