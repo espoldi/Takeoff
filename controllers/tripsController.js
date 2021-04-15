@@ -21,4 +21,8 @@ module.exports = {
     await trip.updateOne(update);
     res.json(trip);
   },
+  remove: async function (req, res) {
+    let trip = await Trip.findById(req.params.id).deleteOne();
+    res.json(trip);
+  }
 }
