@@ -1,18 +1,14 @@
 const db = require('../models');
+const Trip = db.Trip;
 
 module.exports = {
-  findAll: function (req, res) {
-    db.User.findById(req.params.id)
-      .then(user => res.json(user.trips))
-      .catch(err => res.status(422).json(err));
+  findAll: async function (req, res) {
+    let trips = await Trip.find({ user: req.params.id });
+    res.json(trips);
   },
-  create: function (req, res) {
-    db.User.findById(req.params.id)
-      .then(user => {
-        user.trips.push(req.body);
-        user.save();
-        res.json(user.trips);
-      })
-      .catch(err => res.status(422).json(err));
+  create: async function (req, res) {
+    let newTrip = new Trip(req.body);
+    let savedTrip = await newTrip.save();
+    res.json(savedTrip);
   }
 }
