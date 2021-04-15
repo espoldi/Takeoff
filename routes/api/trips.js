@@ -10,6 +10,7 @@ router
   
 router
   .route('/:id')
-  .get(tripsController.findById);
+  .get(tripsController.findById)
+  .put(tripsController.update);
 
 module.exports = router;
