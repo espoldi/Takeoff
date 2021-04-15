@@ -2,31 +2,31 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create Schema
-const UserSchema = new Schema({
+const TripSchema = new Schema({
   name: {
     type: String,
     required: true
   },
-  email: {
+  location: {
     type: String,
     required: true
   },
-  password: {
-    type: String,
-    required: true
-  },
-  date: {
+  start: {
     type: Date,
-    default: Date.now
+    required: true
   },
-  trips: [{
+  end: {
+    type: Date,
+    required: true
+  },
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "Trip"
-  }],
-  posts: [{
+    ref: 'User'
+  },
+  itinerary: [{
     type: Schema.Types.ObjectId,
-    ref: "Post"
+    ref: 'ItineraryItem'
   }]
 });
 
-module.exports = User = mongoose.model("User", UserSchema);
+module.exports = Trip = mongoose.model('Trip', TripSchema);
