@@ -1,31 +1,31 @@
-//const db = require('../models');
-const Posts = require('../models/schemas/Posts');
+const db = require('../models');
+const Post = db.Post;
 
 //Defining methods for the postsController
 module.exports = {
   findAll: function (req, res) {
-    Posts.find(req.query)
+    Post.find(req.query)
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
-    Posts.findById(req.params.id)
+    Post.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    Posts.create(req.body)
+    Post.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {
-    Posts.findOneAndUpdate({ _id: req.params.id }, req.body)
+    Post.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    Posts.findById({ _id: req.params.id })
+    Post.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
