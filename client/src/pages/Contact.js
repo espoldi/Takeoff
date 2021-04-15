@@ -1,40 +1,12 @@
 import React from "react";
 // Material UI
-import {
-  Button,
-  Container,
-  FormControl,
-  InputLabel,
-  Input,
-  TextField,
-} from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 class Contact extends React.Component {
   render() {
     return (
       <Container fixed>
-        <form style={{ width: "50%" }}>
-          <h1>Contact Form</h1>
-
-          <FormControl margin="normal" fullWidth>
-            <InputLabel htmlFor="name">Name</InputLabel>
-            <Input id="name" type="text" />
-          </FormControl>
-
-          <FormControl margin="normal" fullWidth>
-            <InputLabel htmlFor="email">Email</InputLabel>
-            <Input id="email" type="email" />
-          </FormControl>
-
-          <FormControl margin="normal" fullWidth>
-            <InputLabel htmlFor="email">Message</InputLabel>
-            <Input id="email" multiline rows={10} />
-          </FormControl>
-
-          <Button variant="contained" color="primary" size="medium">
-            Send
-            </Button>
-        </form>
+        <iframe style={{ width: "100%", height:"82em", alignContent:"center", marginTop:"1rem", border:"none" }} src="https://us10.list-manage.com/contact-form?u=a14fe5dd37e71371bbf84a953&form_id=d783aae4f152e34bdd1b5eb0c226c150"></iframe>
       </Container>
     );
   }
