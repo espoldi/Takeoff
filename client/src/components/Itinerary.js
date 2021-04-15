@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 // Material UI
 import {
+    Button,
     Collapse,
-    Grid,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
     IconButton,
     List,
     ListItem,
     ListItemIcon,
     ListItemSecondaryAction,
-    ListItemText
+    ListItemText,
+    useMediaQuery
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+    useTheme,
+    makeStyles
+} from '@material-ui/core/styles';
 import {
     ChevronRight,
     Edit,
@@ -27,57 +36,74 @@ const useStyles = makeStyles((theme) => ({
     nested: {
         paddingLeft: theme.spacing(4),
     },
-    heading: { fontSize: theme.typography.pxToRem(15) },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
-    },
 }));
 
 export default function Itinerary() {
     const classes = useStyles();
 
-    const [listOpen, setListOpen] = useState(true);
+    // Pop Up Editor Responsiveness
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-    const handleListClick = () => {
-        setListOpen(true);
-    };
+    // Handler for opening and closing itinerary dates
+    const [itemOpen, setItemOpen] = useState(true);
+    const handleItemClick = () => { setItemOpen(!itemOpen); };
 
+    // Handler for Pop Up editor
+    const [editOpen, setEditOpen] = useState(false);
 
+    const handleEditClickOpen = () => {setEditOpen(true);};
+  
+    const handleEditClose = () => {setEditOpen(false);};
 
     return (
         <>
-            {/* Insert function to make nested list items for each day in range of start and end dates */}
-            <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
 
-                <ListItem button>
-                    <ListItemText primary="4/10/2021" />
+            <List
+                component="itinerary"
+                aria-labelledby="nested-itinerary-events"
+                className={classes.root}
+            >
+                {/* Insert function to make nested list items for each day in range of start and end dates */}
+                <ListItem button onClick={handleItemClick}>
+                    <ListItemText primary="Insert Itinerary Date" />
+                    {itemOpen ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-
-                <ListItem button>
-                    <ListItemText primary="4/11/2021" />
-                </ListItem>
-
-                <ListItem button onClick={handleListClick}>
-                    <ListItemText primary="4/12/2021" />
-                    {listOpen ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-
-                <Collapse in={listOpen} timeout="auto" unmountOnExit>
+                <Collapse in={itemOpen} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <ListItem button className={classes.nested}>
                             <ListItemIcon>
                                 <ChevronRight />
                             </ListItemIcon>
-                            <ListItemText primary="New Activity Listing" />
+                            <ListItemText primary="Insert Event Activity Text" />
                             <ListItemSecondaryAction>
                                 <IconButton edge="end" aria-label="edit"
-                                    onClick={() => { alert('clicked') }}>
+                                    onClick={handleEditClickOpen}>
                                     <Edit />
                                 </IconButton>
+                                <Dialog
+                                    fullScreen={fullScreen}
+                                    open={editOpen}
+                                    onClose={handleEditClose}
+                                    aria-labelledby="itinerary-item-editor"
+                                    aria-describedby="itinerary-item-description"
+                                >
+                                    <DialogTitle id="editor-title">{"Itinerary Point Editor"}</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText id="itinerary-item-description">
+                                            Let Google help apps determine location. This means sending anonymous location data to
+                                            Google, even when no apps are running.
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={handleEditClose} color="primary">
+                                            Cancel
+                                        </Button>
+                                        <Button onClick={handleEditClose} color="primary" autoFocus>
+                                            Save
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog>
                             </ListItemSecondaryAction>
                         </ListItem>
                     </List>

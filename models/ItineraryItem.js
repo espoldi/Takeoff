@@ -7,19 +7,14 @@ const ItineraryItemSchema = new Schema({
     type: Date,
     required: true
   },
-  location: {
-    type: String,
-    required: true
-  },
   activity: {
     type: String,
     required: true
   },
-  type: {
-    type: String,
-    required: true
-    //ex: ['transportation, eating, sightseeing, social, downtime']
+  trip: {
+    type: Schema.Types.ObjectId,
+    ref: 'Trip'
   }
 });
 
-module.exports = ItineraryItemSchema;
+module.exports = ItineraryItem = mongoose.model('ItineraryItem', ItineraryItemSchema);
