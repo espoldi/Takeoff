@@ -15,6 +15,9 @@ import Blog from './pages/Blog';
 import BucketList from './pages/BucketList';
 import MeetTheTeam from './pages/MeetTheTeam';
 import Contact from './pages/Contact';
+// Theme
+import Theme from "./utils/Theme";
+import { ThemeProvider } from '@material-ui/core/styles';
 // Router
 import {
   BrowserRouter as Router,
@@ -47,6 +50,7 @@ class App extends Component {
 
   render() {
     return (
+      <ThemeProvider theme={Theme}>
       <Provider store={store}>
         <Router>
           <Switch>
@@ -68,6 +72,7 @@ class App extends Component {
           </Switch>
         </Router>
       </Provider>
+      </ThemeProvider>
     );
   }
 }
