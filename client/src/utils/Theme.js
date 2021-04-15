@@ -1,11 +1,22 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
-
-const theme = createMuiTheme({
-  
- 
- 
+const theme = createMuiTheme({ 
+    overrides: {
+        MuiPaper: {
+          root: {
+            backgroundColor: "#263039"
+          }
+        }
+      },
+    palette: {
+    
+    background: {
+      default: "#263039",
+    },
+    primary: {
+      main: "#7BABC5",
+    },
+  },
 });
 
 export default theme;
