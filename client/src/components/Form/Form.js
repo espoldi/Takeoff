@@ -8,7 +8,7 @@ import { createPost, updatePost } from '../../actions/posts';
 
 const Form = ({ currentId, setCurrentId}) => {
     const [postData, setPostData] = useState({ creator:'', title: '', message: '', tags: '', selectedFile: ''});
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const post = useSelector((state) => currentId ? state.posts.find((post) => post._id === currentId) : null);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ const Form = ({ currentId, setCurrentId}) => {
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">{ currentId ? 'Editing' : 'Creating' } a Moment</Typography>
+                <Typography variant="h6">{ currentId ? 'Editing' : 'Creating' } Your Post</Typography>
                 <TextField 
                 name="creator" 
                 variant="outlined" 
@@ -53,7 +53,7 @@ const Form = ({ currentId, setCurrentId}) => {
                     <FileBase type='file' multiple={false} onDone={({base64}) => setPostData({...postData, selectedFile: base64})} />
                 </div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+                <Button variant="contained" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
         </Paper>
     );

@@ -7,12 +7,14 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
+    
     padding: theme.spacing(2),
   },
   form: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    background: 'white',
   },
   fileInput: {
     width: '97%',

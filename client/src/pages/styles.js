@@ -8,9 +8,10 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    background: "#9DCACB",
   },
   heading: {
-    color: "#9DCACB",
+    color: "#eaf7f7",
   },
   image: {
     marginLeft: '15px',

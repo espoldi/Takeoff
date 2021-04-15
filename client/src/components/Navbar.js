@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import LeftMenuSlider from "@material-ui/core/Drawer"
 import {
   AppBar,
-  CssBaseline,
   Divider,
   IconButton,
   List,
@@ -48,24 +47,7 @@ const useStyles =makeStyles ((theme) => ({
 }));
 
 
-  const menuItems = [
-     
-  {
-    ListItemIcon: <Group/>,
-    ListItemText: "Meet the Team",
-    ListItemPath: "/meet-the-team"
-  },
-  {
-    ListItemIcon: <ContactMail/>,
-    ListItemText: "Contact Us",
-    ListItemPath: "/contact"
-  },
-  {
-    ListItemIcon: <CancelPresentation/>,
-    ListItemText: "Log Off",
-    ListItemPath: "/"
-  },
-];
+  
 const Navbar = () => {
   const [state, setState] = useState({
     left:false

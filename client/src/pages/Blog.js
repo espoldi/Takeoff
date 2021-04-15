@@ -11,24 +11,25 @@ import useStyles from './styles';
 export default function Blog() {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const [currentId, setCurrentId] = useState(null);
 
     useEffect(() => {
         dispatch(getPosts());
-    }, [dispatch]);
+    }, [currentId, dispatch]);
 
     return (
         <Container maxWidth="lg">
             <AppBar className={classes.appBar} position="static" color ="inherit">
-                <Typography className={classes.heading} variant="h2" align="center"> Blog Collection </Typography>
+                <Typography className={classes.heading} variant="h2" align="center"> BLOG </Typography>
             </AppBar>
             <Grow in>
                 <Container>
                     <Grid container className={classes.mainContainer} justify="space-between" alignItems="stretch" spacing={3}>
                         <Grid item xs={12} sm={7}>
-                            <Posts />
+                            <Posts setCurrentId={setCurrentId} />
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Form />
+                            <Form currentId={currentId} setCurrentId={setCurrentId} />
                         </Grid>
                     </Grid>
                 </Container>
