@@ -14,10 +14,12 @@ const PostSchema = new Schema({
     },
     createdAt: {
       type: Date,
-      default: new Date()
+      default: Date.now()
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   });
 
-const Posts = mongoose.model("Posts", PostSchema);
-
-module.exports = Posts;
+module.exports = Post = mongoose.model("Post", PostSchema);
