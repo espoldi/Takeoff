@@ -36,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(1),
         backgroundColor: theme.palette.background.paper,
     },
-    nested: {
-        paddingLeft: theme.spacing(4),
-    },
     heading: { fontSize: theme.typography.pxToRem(15) },
     formControl: {
         margin: theme.spacing(1),
@@ -192,16 +189,14 @@ export default function EditorMenu() {
                     <Snackbar
                         anchorOrigin={{
                             vertical: 'bottom',
-                            horizontal: 'left',
+                            horizontal: 'right',
                         }}
                         open={addListOpen}
-                        autoHideDuration={2000}
+                        autoHideDuration={1500}
                         onClose={handleAddListClose}
-                        message="Note archived"
+                        message="Event Added Successfully!"
                         action={
                             <React.Fragment>
-                                <Button color="secondary" size="small" onClick={handleAddListClose}>
-                                    UNDO</Button>
                                 <IconButton size="small" aria-label="close" color="inherit" onClick={handleAddListClose}>
                                     <Close fontSize="small" />
                                 </IconButton>
