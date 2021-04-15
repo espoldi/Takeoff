@@ -11,6 +11,7 @@ router
 router
   .route('/:id')
   .get(tripsController.findById)
-  .put(tripsController.update);
+  .put(tripsController.update)
+  .delete(tripsController.remove);
 
 module.exports = router;
