@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const postsController = require('../../controllers/postsController');
 
-// Blog routes
+// Blog Post routes
 router
   .route('/')
   .get(postsController.findAll)
