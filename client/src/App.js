@@ -18,6 +18,7 @@ import Contact from './pages/Contact';
 // Theme
 import Theme from "./utils/Theme";
 import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 // Router
 import {
   BrowserRouter as Router,
@@ -51,6 +52,7 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={Theme}>
+        <CssBaseline />
       <Provider store={store}>
         <Router>
           <Switch>
