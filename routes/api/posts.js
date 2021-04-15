@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const postsController = require('../../controllers/postsController');
 
-// Blog routes
+// Blog Post routes
 router
   .route('/')
   .get(postsController.findAll)
@@ -11,7 +11,7 @@ router
 router
   .route('/:id')
   .get(postsController.findById)
-  .put(postsController.update)
+  .patch(postsController.update)
   .delete(postsController.remove);
 
 module.exports = router;

@@ -8,16 +8,18 @@ const PostSchema = new Schema({
     creator: String,
     tags: [String],
     selectedFile: String,
-    likeCount: {
+    rating: {
         type: Number,
         default:  0
     },
     createdAt: {
       type: Date,
-      default: new Date()
+      default: Date.now()
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   });
 
-const Posts = mongoose.model("Posts", PostSchema);
-
-module.exports = Posts;
+module.exports = Post = mongoose.model("Post", PostSchema);
