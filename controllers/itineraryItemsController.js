@@ -6,5 +6,8 @@ module.exports = {
     let itineraryItems = await ItineraryItem.find({ tripId: req.body.tripId });
     res.json(itineraryItems);
   },
-  
+  findById: async function (req, res) {
+    let itineraryItem = await ItineraryItem.findById(req.params.id);
+    res.json(itineraryItem);
+  }
 }
