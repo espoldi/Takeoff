@@ -8,9 +8,9 @@ router
   .get(itineraryItemsController.findAll);
   // .post(itineraryItemsController.create);
 
-// router
-//   .route('/:id')
-//   .get(itineraryItemsController.findById)
+router
+  .route('/:id')
+  .get(itineraryItemsController.findById);
 //   .patch(itineraryItemsController.update)
 //   .delete(itineraryItemsController.remove);
 
