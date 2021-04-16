@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const itineraryItemsController = require('../../controllers/itineraryItemsController');
 
-// Blog Post routes
+// Itinerary Item Routes
 router
   .route('/')
   .get(itineraryItemsController.findAll)
