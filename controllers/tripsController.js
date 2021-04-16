@@ -11,7 +11,13 @@ module.exports = {
     res.json(trip);
   },
   create: async function (req, res) {
-    let newTrip = new Trip(req.body);
+    let newTrip = new Trip({
+      name: req.body.name,
+      location: req.body.location,
+      start: req.body.start,
+      end: req.body.end,
+      user: req.body.user
+    });
     let savedTrip = await newTrip.save();
     res.json(savedTrip);
   },
