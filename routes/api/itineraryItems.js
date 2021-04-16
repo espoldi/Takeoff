@@ -11,7 +11,7 @@ router
 router
   .route('/:id')
   .get(itineraryItemsController.findById)
-  .put(itineraryItemsController.update);
-//   .delete(itineraryItemsController.remove);
+  .put(itineraryItemsController.update)
+  .delete(itineraryItemsController.remove);
 
 module.exports = router;

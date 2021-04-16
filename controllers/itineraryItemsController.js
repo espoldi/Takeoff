@@ -20,5 +20,9 @@ module.exports = {
     let update = req.body;
     await item.updateOne(update);
     res.json(item);
+  },
+  remove: async function (req, res) {
+    let item = await ItineraryItem.findById(req.params.id).deleteOne();
+    res.json(item);
   }
 }
