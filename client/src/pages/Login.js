@@ -5,7 +5,6 @@ import {
   Avatar,
   Box,
   Button,
-  CssBaseline,
   Grid,
   Paper,
   TextField,
@@ -25,7 +24,7 @@ const styles = (theme) => createStyles({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://i.pinimg.com/564x/50/fc/da/50fcda2407396ffb89d30fc9e61a40f2.jpg)',
+    backgroundImage: 'url(https://source.unsplash.com/collection/74439722)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -96,7 +95,7 @@ class Login extends Component {
     const { classes } = this.props;
     return (
       <Grid container component="main" className={classes.root}>
-        <CssBaseline />
+        
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
