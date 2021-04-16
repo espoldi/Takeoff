@@ -5,8 +5,8 @@ const itineraryItemsController = require('../../controllers/itineraryItemsContro
 // Blog Post routes
 router
   .route('/')
-  .get(itineraryItemsController.findAll);
-  // .post(itineraryItemsController.create);
+  .get(itineraryItemsController.findAll)
+  .post(itineraryItemsController.create);
 
 router
   .route('/:id')
