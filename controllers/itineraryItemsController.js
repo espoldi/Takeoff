@@ -14,5 +14,11 @@ module.exports = {
     let newItem = new ItineraryItem(req.body);
     let savedItem = await newItem.save();
     res.json(savedItem);
+  },
+  update: async function (req, res) {
+    let item = await ItineraryItem.findById(req.params.id);
+    let update = req.body;
+    await item.updateOne(update);
+    res.json(item);
   }
 }

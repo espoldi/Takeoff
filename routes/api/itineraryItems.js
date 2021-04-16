@@ -10,8 +10,8 @@ router
 
 router
   .route('/:id')
-  .get(itineraryItemsController.findById);
-//   .patch(itineraryItemsController.update)
+  .get(itineraryItemsController.findById)
+  .put(itineraryItemsController.update);
 //   .delete(itineraryItemsController.remove);
 
 module.exports = router;
