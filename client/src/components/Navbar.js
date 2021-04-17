@@ -31,6 +31,8 @@ import{
   CancelPresentation
 } from "@material-ui/icons/";
 
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../actions/authActions';
 
 /// CSS Styles
 const useStyles =makeStyles ((theme) => ({
@@ -45,10 +47,14 @@ const useStyles =makeStyles ((theme) => ({
     color: theme.palette.text.primary,
   }
 }));
-
-
   
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  }
+
   const [state, setState] = useState({
     left:false
   });
@@ -112,7 +118,7 @@ const Navbar = () => {
           </NavLink>
           <ListItem button>
             <ListItemIcon><CancelPresentation/></ListItemIcon>
-            <ListItemText>
+            <ListItemText onClick={handleLogout}>
               Log Off
             </ListItemText>
           </ListItem>
