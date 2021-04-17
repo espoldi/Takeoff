@@ -16,7 +16,6 @@ import {
 } from '@material-ui/core/';
 import Copyright from '../components/Copyright';
 import PropTypes from 'prop-types';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { createStyles, withStyles } from '@material-ui/core/styles';
 import { registerUser } from '../actions/authActions';
 
@@ -29,7 +28,7 @@ const styles = (theme) => createStyles({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#a8c6ce",
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -88,8 +87,9 @@ class Register extends Component {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
+          <Avatar className={classes.avatar} alt="waves"
+              src="/client/public/images/waves.png">
+           
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
