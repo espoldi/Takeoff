@@ -11,7 +11,11 @@ module.exports = {
     res.json(itineraryItem);
   },
   create: async function (req, res) {
-    let newItem = new ItineraryItem(req.body);
+    let newItem = new ItineraryItem({
+      date: req.body.date,
+      activity: req.body.activity,
+      trip: req.body.trip
+    });
     let savedItem = await newItem.save();
     res.json(savedItem);
   },
