@@ -5,10 +5,13 @@ const tripsController = require('../../controllers/tripsController');
 // Trip Routes
 router
   .route('/')
+  .get(tripsController.findAll)
   .post(tripsController.create);
   
 router
   .route('/:id')
-  .get(tripsController.findAll);
+  .get(tripsController.findById)
+  .put(tripsController.update)
+  .delete(tripsController.remove);
 
 module.exports = router;

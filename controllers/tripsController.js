@@ -3,12 +3,32 @@ const Trip = db.Trip;
 
 module.exports = {
   findAll: async function (req, res) {
-    let trips = await Trip.find({ user: req.params.id });
+    let trips = await Trip.find({ user: req.body.userId });
     res.json(trips);
   },
+  findById: async function (req, res) {
+    let trip = await Trip.findById(req.params.id);
+    res.json(trip);
+  },
   create: async function (req, res) {
-    let newTrip = new Trip(req.body);
+    let newTrip = new Trip({
+      name: req.body.name,
+      location: req.body.location,
+      start: req.body.start,
+      end: req.body.end,
+      user: req.body.user
+    });
     let savedTrip = await newTrip.save();
     res.json(savedTrip);
+  },
+  update: async function (req, res) {
+    let trip = await Trip.findById(req.params.id);
+    let update = req.body;
+    await trip.updateOne(update);
+    res.json(trip);
+  },
+  remove: async function (req, res) {
+    let trip = await Trip.findById(req.params.id).deleteOne();
+    res.json(trip);
   }
 }
