@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // Material UI
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getPosts } from '../actions/postActions';
 import Posts from '../components/Posts/Posts';
@@ -9,13 +9,19 @@ import Form from '../components/Form/Form';
 import useStyles from './styles';
 
 export default function Blog() {
+    const userId = useSelector(state => state.auth.user.id);
     const classes = useStyles();
     const dispatch = useDispatch();
-    const [currentId, setCurrentId] = useState(null);
 
     useEffect(() => {
-        dispatch(getPosts());
-    }, [currentId, dispatch]);
+        dispatch(getPosts(userId));
+    }, [userId, dispatch]);
+
+    const posts = useSelector(state => state.posts.posts);
+
+    // const [formData, setFormData] = useState({
+    //     title: '', message: '', tags: '', selectedFile: ''
+    // });
 
     return (
         <Container maxWidth="lg">
@@ -26,10 +32,10 @@ export default function Blog() {
                 <Container>
                     <Grid container className={classes.mainContainer} justify="space-between" alignItems="stretch" spacing={3}>
                         <Grid item xs={12} sm={7}>
-                            <Posts setCurrentId={setCurrentId} />
+                            <Posts posts={posts} />
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Form currentId={currentId} setCurrentId={setCurrentId} />
+                            <Form />
                         </Grid>
                     </Grid>
                 </Container>
