@@ -5,7 +5,23 @@ export const getTrips = () => async (dispatch) => {
   try {
     const { data } = await api.fetchTrips();
 
-    dispatch({ type: FETCH_ALL_TRIPS, payload: data });
+    let currentTrips = [];
+    let archivedTrips = [];
+
+    for(let i=0; i<data.length; i++) {
+      if(!data[i].archived) {
+        currentTrips.push(data[i]);
+      } else {
+        archivedTrips.push(data[i]);
+      }
+    }
+
+    const filteredData = {
+      currentTrips,
+      archivedTrips
+    }
+
+    dispatch({ type: FETCH_ALL_TRIPS, payload: filteredData });
   } catch (error) {
     console.log(error.message);
   }
