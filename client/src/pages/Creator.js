@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// Pages
-import Editor from './Editor.js';
 // Material UI
 import {
   Button,
@@ -16,7 +14,7 @@ import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import { useSelector, useDispatch } from 'react-redux';
 import { createTrip } from '../actions/tripActions';
 
-export default function ItineraryCreator() {
+export default function ItineraryCreator(props) {
   const dispatch = useDispatch();
   const userId = useSelector(state => (state.auth.user.id));
 
@@ -34,6 +32,7 @@ export default function ItineraryCreator() {
       end
     }
     dispatch(createTrip(newTrip));
+    props.history.push('/editor');
   }
 
   const handleInputChange = e => {
