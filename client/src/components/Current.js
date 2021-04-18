@@ -1,7 +1,8 @@
 import React from 'react';
 // Material UI
+import TripCard from '../components/TripCard.js';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Grid, Paper, Typography } from '@material-ui/core';
+import { Grid, Paper, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: { flexGrow: 1 },
@@ -12,29 +13,21 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Current() {
+function Current(props) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
-                <Grid container spacing={1}>
-                    <Grid item xs={12}>
-                        <Typography variant="h5" color="textSecondary">My Current Adventure</Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="h4">Destination: </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography variant="h5">Start Date: </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography variant="h5">End Date: </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="h5">Current Activity: </Typography>
-                    </Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h5" color="textSecondary">My Current Adventures</Typography>
                 </Grid>
-                <Button>Edit Itinerary</Button>
+                <Grid container spacing={2}>
+                    {props.data.map((trip) => (
+                        <Grid item xs={4}>
+                            <TripCard data={trip} />
+                        </Grid>
+                    ))}
+                </Grid>
             </Paper>
         </div>
     );
