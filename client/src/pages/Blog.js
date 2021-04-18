@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // Material UI
 import {
     AppBar,
@@ -45,9 +45,9 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Blog() {
+    const userId = useSelector(state => state.auth.user.id);
     const classes = useStyles();
     const dispatch = useDispatch();
-    const [currentId, setCurrentId] = useState(null);
 
     // Floating Action Button and Dialog Box for Post Creation
     const [open, setOpen] = useState(false);
@@ -55,8 +55,14 @@ export default function Blog() {
     const handleClose = () => { setOpen(false); };
 
     useEffect(() => {
-        dispatch(getPosts());
-    }, [currentId, dispatch]);
+        dispatch(getPosts(userId));
+    }, [userId, dispatch]);
+
+    const posts = useSelector(state => state.posts.posts);
+
+    // const [formData, setFormData] = useState({
+    //     title: '', message: '', tags: '', selectedFile: ''
+    // });
 
     return (
         <Container fixed>

@@ -1,10 +1,10 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from './types/postTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, SET_CURRENT_POST } from './types/postTypes';
 import * as api from '../api/posts';
 
 //Action Creators redux thunk=async 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (userId) => async (dispatch) => {
     try {
-        const { data } = await api.fetchPosts();
+        const { data } = await api.fetchPosts(userId);
 
         dispatch({ type: FETCH_ALL, payload: data });
     } catch (error) {
@@ -44,12 +44,10 @@ export const deletePost = (id) => async (dispatch) => {
     }
 }
 
-export const starPost = (id) => async (dispatch) => {
+export const setCurrentPost = (id) => async (dispatch) => {
     try {
-        const { data } = await api.starPost(id);
-
-        dispatch({ type: UPDATE, payload: data });
-
+        const { data } = await api.fetchPost(id);
+        dispatch({ type: SET_CURRENT_POST, payload: data });
     } catch (error) {
         console.log(error);
     }
