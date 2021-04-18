@@ -3,7 +3,7 @@ const Trip = db.Trip;
 
 module.exports = {
   findAll: async function (req, res) {
-    let trips = await Trip.find({ user: req.body.userId });
+    let trips = await Trip.find({ userId: req.body.userId });
     res.json(trips);
   },
   findById: async function (req, res) {
@@ -16,7 +16,7 @@ module.exports = {
       location: req.body.location,
       start: req.body.start,
       end: req.body.end,
-      user: req.body.user
+      userId: req.body.userId
     });
     let savedTrip = await newTrip.save();
     res.json(savedTrip);
