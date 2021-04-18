@@ -1,9 +1,10 @@
 import { FETCH_ALL_TRIPS, CREATE_TRIP, UPDATE_TRIP, DELETE_TRIP } from './types/tripTypes';
 import * as api from '../api/trips';
 
-export const getTrips = () => async (dispatch) => {
+export const getTrips = (userId) => async (dispatch) => {
   try {
-    const { data } = await api.fetchTrips();
+    const query = { userId }
+    const { data } = await api.fetchTrips(query);
 
     let currentTrips = [];
     let archivedTrips = [];
