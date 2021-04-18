@@ -3,8 +3,7 @@ import * as api from '../api/trips';
 
 export const getTrips = (userId) => async (dispatch) => {
   try {
-    const query = { userId }
-    const { data } = await api.fetchTrips(query);
+    const { data } = await api.fetchTrips(userId);
 
     let currentTrips = [];
     let archivedTrips = [];
