@@ -11,7 +11,7 @@ const ItineraryItemSchema = new Schema({
     type: String,
     required: true
   },
-  trip: {
+  tripId: {
     type: Schema.Types.ObjectId,
     ref: 'Trip'
   }
