@@ -12,12 +12,8 @@ function tripReducer(state = initialState, action) {
     case FETCH_ALL_TRIPS:
       return {
         ...state,
-        currentTrips: [
-          action.payload.currentTrips
-        ],
-        archivedTrips: [
-          action.payload.archivedTrips
-        ]
+        currentTrips: action.payload.currentTrips,
+        archivedTrips: action.payload.archivedTrips
       }
     case CREATE_TRIP:
       return {
