@@ -3,7 +3,7 @@ const ItineraryItem = db.ItineraryItem;
 
 module.exports = {
   findAll: async function (req, res) {
-    let itineraryItems = await ItineraryItem.find({ trip: req.body.tripId });
+    let itineraryItems = await ItineraryItem.find({ tripId: req.body.tripId });
     res.json(itineraryItems);
   },
   findById: async function (req, res) {
@@ -14,7 +14,7 @@ module.exports = {
     let newItem = new ItineraryItem({
       date: req.body.date,
       activity: req.body.activity,
-      trip: req.body.trip
+      tripId: req.body.tripId
     });
     let savedItem = await newItem.save();
     res.json(savedItem);
