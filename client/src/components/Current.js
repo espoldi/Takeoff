@@ -23,7 +23,7 @@ function Current(props) {
                 </Grid>
                 <Grid container spacing={2}>
                     {props.data.map((trip) => (
-                        <Grid item xs={4}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <TripCard data={trip} />
                         </Grid>
                     ))}
