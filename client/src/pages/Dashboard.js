@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // Components
 import Current from '../components/Current.js';
 import Archive from '../components/Archive.js';
 // Material UI
 import { Container } from '@material-ui/core';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { getTrips } from '../actions/tripActions';
 
 export default function Dashboard() {
-    return (
-            <Container fixed>
-                <Current />
-                <Archive />
-            </Container>
-    );
+  const userId = useSelector(state => state.auth.user.id);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTrips(userId));
+  }, [userId, dispatch]);
+
+  const current = useSelector(state => state.trips.currentTrips);
+  // const archived = useSelector(state => state.trips.archivedTrips);
+
+  return (
+    <Container fixed>
+      <Current data={current} />
+      <Archive />
+    </Container>
+  );
 }
