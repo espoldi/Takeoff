@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { TextField, Button, Typography } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -35,7 +35,6 @@ const Form = ({ currentId, setCurrentId}) => {
     } 
 
     return (
-        <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">{ currentId ? 'Editing' : 'Creating' } Your Post</Typography>
                 <TextField 
@@ -52,10 +51,9 @@ const Form = ({ currentId, setCurrentId}) => {
                 <div className={classes.fileInput}>
                     <FileBase type='file' multiple={false} onDone={({base64}) => setPostData({...postData, selectedFile: base64})} />
                 </div>
-                <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+                <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" >Submit</Button>
                 <Button variant="contained" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
-        </Paper>
     );
 }
 
