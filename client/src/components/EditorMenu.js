@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 // Material UI
 import {
     Accordion,
@@ -47,8 +48,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EditorMenu() {
+    const workingTrip = useSelector(state => state.trips.workingTrip);
     const classes = useStyles();
 
+    const [tripName, setTripName] = useState('');
+    const [location, setLocation] = useState('');
     const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
     const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
     const [selectedTime, setSelectedTime] = useState(Date.now());
@@ -72,6 +76,12 @@ export default function EditorMenu() {
         setAddListOpen(false);
     };
 
+    useEffect(() => {
+        setTripName(workingTrip.name);
+        setLocation(workingTrip.location);
+        setSelectedStartDate(workingTrip.start);
+        setSelectedEndDate(workingTrip.end);
+    }, [workingTrip]);
 
     return (
         <>
@@ -86,6 +96,7 @@ export default function EditorMenu() {
                                 id="trip-name"
                                 label="Trip Name"
                                 variant="outlined"
+                                value={tripName}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -93,6 +104,7 @@ export default function EditorMenu() {
                                 id="destination"
                                 label="Destination"
                                 variant="outlined"
+                                value={location}
                             />
                         </Grid>
 
