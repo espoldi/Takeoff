@@ -13,41 +13,37 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { createTrip } from '../actions/tripActions';
 
 export default function ItineraryCreator() {
+  const dispatch = useDispatch();
   const userId = useSelector(state => (state.auth.user.id));
 
-  const [selectedStartDate, setSelectedStartDate] = useState(Date.now());
-  const [selectedEndDate, setSelectedEndDate] = useState(Date.now());
+  const [start, setStart] = useState(Date.now());
+  const [end, setEnd] = useState(Date.now());
 
-  const handleStartDateChange = (date) => { setSelectedStartDate(date); };
-  const handleEndDateChange = (date) => { setSelectedEndDate(date); };
+  const handleStartDateChange = (date) => { setStart(date); };
+  const handleEndDateChange = (date) => { setEnd(date); };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const newUser = {
+    const newTrip = {
       ...values,
-      selectedStartDate,
-      selectedEndDate,
-      userId
+      start,
+      end
     }
-    console.log(newUser);
-    //   const newTrip = {...newTrip, userId};
-    //   createTrip(newTrip);
+    dispatch(createTrip(newTrip));
   }
 
   const handleInputChange = e => {
-    const {name, value} = e.target
-    setValues({...values, [name]: value})
+    const { name, value } = e.target
+    setValues({ ...values, [name]: value })
   }
 
   const [values, setValues] = useState({
     name: '',
     location: '',
-    // start: '',
-    // end: '',
     userId: userId
   });
 
@@ -85,7 +81,7 @@ export default function ItineraryCreator() {
                 label="Start Date"
                 format="MM/dd/yyyy"
                 name="start"
-                value={selectedStartDate}
+                value={start}
                 onChange={handleStartDateChange}
                 KeyboardButtonProps={{
                   'aria-label': 'change start date',
@@ -100,7 +96,7 @@ export default function ItineraryCreator() {
                 label="End Date"
                 format="MM/dd/yyyy"
                 name="end"
-                value={selectedEndDate}
+                value={end}
                 onChange={handleEndDateChange}
                 KeyboardButtonProps={{
                   'aria-label': 'change end date',
