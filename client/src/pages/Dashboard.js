@@ -15,12 +15,13 @@ export default function Dashboard() {
   }, [userId, dispatch]);
 
   const current = useSelector(state => state.trips.currentTrips);
-  // const archived = useSelector(state => state.trips.archivedTrips);
+  const archived = useSelector(state => state.trips.archivedTrips);
 
   return (
     <Container fixed>
       <Current data={current} />
-      <Archive />
+      <br/>
+      <Archive data={archived} />
     </Container>
   );
 }

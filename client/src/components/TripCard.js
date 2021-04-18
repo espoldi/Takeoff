@@ -1,7 +1,7 @@
 import React from 'react';
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Grid, Paper, Typography } from '@material-ui/core';
+import { Button, Divider, Grid, Paper, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -21,8 +21,9 @@ export default function TripCard(props) {
                     <Typography variant="h6">Destination: {props.data.location}</Typography>
                     <Typography variant="h6">Start Date: {props.data.start}</Typography>
                     <Typography variant="h6">End Date: {props.data.end}</Typography>
-                
-                <Button>Edit Itinerary</Button>
+                <Divider />
+                <Button color="primary">Edit</Button>
+                <Button color="secondary">Archive</Button>
             </Paper>
         </Grid>
     );
