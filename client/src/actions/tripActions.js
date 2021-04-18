@@ -1,11 +1,28 @@
 import { FETCH_ALL_TRIPS, CREATE_TRIP, UPDATE_TRIP, DELETE_TRIP } from './types/tripTypes';
 import * as api from '../api/trips';
 
-export const getTrips = () => async (dispatch) => {
+export const getTrips = (userId) => async (dispatch) => {
   try {
-    const { data } = await api.fetchTrips();
+    const query = { userId }
+    const { data } = await api.fetchTrips(query);
 
-    dispatch({ type: FETCH_ALL_TRIPS, payload: data });
+    let currentTrips = [];
+    let archivedTrips = [];
+
+    for(let i=0; i<data.length; i++) {
+      if(!data[i].archived) {
+        currentTrips.push(data[i]);
+      } else {
+        archivedTrips.push(data[i]);
+      }
+    }
+
+    const filteredData = {
+      currentTrips,
+      archivedTrips
+    }
+
+    dispatch({ type: FETCH_ALL_TRIPS, payload: filteredData });
   } catch (error) {
     console.log(error.message);
   }

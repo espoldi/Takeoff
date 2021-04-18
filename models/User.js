@@ -19,6 +19,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  bucketlist: [{
+    type: Schema.Types.ObjectId,
+    ref: "BucketListItem"
+  }],
   trips: [{
     type: Schema.Types.ObjectId,
     ref: "Trip"
