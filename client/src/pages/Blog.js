@@ -70,7 +70,7 @@ export default function Blog() {
                 <Typography className={classes.heading} variant="h2" align="center"> BLOG </Typography>
             </AppBar>
             <Grid container className={classes.mainContainer} justify="space-between" alignItems="stretch" spacing={3}>
-                <Posts setCurrentId={setCurrentId} />
+                <Posts posts={posts} handler={handleClickOpen} />
             </Grid>
             <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleClickOpen}><Edit /></Fab>
             <Dialog
@@ -79,7 +79,7 @@ export default function Blog() {
                 aria-labelledby="alert-add-post"
                 aria-describedby="alert-add-post">
                 <DialogContent>
-                    <Form currentId={currentId} setCurrentId={setCurrentId} />
+                    <Form />
                 </DialogContent>
             </Dialog>
         </Container>

@@ -20,7 +20,10 @@ const Post = (props) => {
             </div>
             <div className={classes.overlay2}>
                 <Tooltip title="Edit" aria-label="edit">
-                    <Button style={{ color: 'white' }} size="small" onClick={() => dispatch(setCurrentPost(props.post._id))}>
+                    <Button style={{ color: 'white' }} size="small" onClick={() => {
+                      dispatch(setCurrentPost(props.post._id));
+                      props.handler();
+                    }}>
                         <MoreHorizIcon fontSize="default" />
                     </Button>
                 </Tooltip>
