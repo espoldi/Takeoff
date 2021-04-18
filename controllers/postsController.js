@@ -4,7 +4,7 @@ const Post = db.Post;
 //Defining methods for the postsController
 module.exports = {
   findAll: function (req, res) {
-    Post.find({ userId: req.body.userId })
+    Post.find({ userId: req.query.userId })
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
