@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 //Material UI
 import {
   Avatar,
@@ -8,47 +8,50 @@ import {
   Grid,
   Paper,
   TextField,
-  Typography
-} from '@material-ui/core/';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { createStyles, withStyles } from '@material-ui/core/styles';
+  Typography,
+} from "@material-ui/core/";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 
-import PropTypes from 'prop-types';
-import { connect as reduxConnect } from 'react-redux';
-import { loginUser } from '../actions/authActions';
+import PropTypes from "prop-types";
+import { connect as reduxConnect } from "react-redux";
+import { loginUser } from "../actions/authActions";
 
-import Copyright from '../components/Copyright';
+import Copyright from "../components/Copyright";
 
-const styles = (theme) => createStyles({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/collection/74439722)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-});
+const styles = (theme) =>
+  createStyles({
+    root: {
+      height: "100vh",
+    },
+    image: {
+      backgroundImage: "url(https://source.unsplash.com/collection/74439722)",
+      backgroundRepeat: "no-repeat",
+      backgroundColor:
+        theme.palette.type === "light"
+          ? theme.palette.grey[50]
+          : theme.palette.grey[900],
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    },
+    paper: {
+      margin: theme.spacing(8, 4),
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: "#a8c6ce",
+    },
+    form: {
+      width: "100%",
+      marginTop: theme.spacing(1),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  });
 
 class Login extends Component {
   constructor() {
@@ -56,7 +59,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errors: {}
+      errors: {},
     };
   }
 
@@ -73,20 +76,20 @@ class Login extends Component {
     }
     if (nextProps.errors) {
       this.setState({
-        errors: nextProps.errors
+        errors: nextProps.errors,
       });
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const userData = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
     this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
   };
@@ -95,16 +98,18 @@ class Login extends Component {
     const { classes } = this.props;
     return (
       <Grid container component="main" className={classes.root}>
-        
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
+            <Avatar
+              className={classes.avatar}
+              alt="waves"
+              src="/client/public/images/waves.png"
+            />
+
             <Typography component="h1" variant="h5">
               Sign in
-          </Typography>
+            </Typography>
             <form className={classes.form} noValidate onSubmit={this.onSubmit}>
               <TextField
                 variant="outlined"
@@ -143,7 +148,7 @@ class Login extends Component {
                 className={classes.submit}
               >
                 Sign In
-            </Button>
+              </Button>
               <Grid container>
                 <Grid item>
                   <p className="grey-text text-darken-1">
@@ -166,15 +171,14 @@ Login.propTypes = {
   classes: PropTypes.object.isRequired,
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
-export default reduxConnect(
-  mapStateToProps,
-  { loginUser }
-)(withStyles(styles)(Login));
+export default reduxConnect(mapStateToProps, { loginUser })(
+  withStyles(styles)(Login)
+);

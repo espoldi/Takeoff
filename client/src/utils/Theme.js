@@ -1,20 +1,39 @@
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { SvgIcon } from "@material-ui/core";
 
-const theme = createMuiTheme({ 
-    overrides: {
-        MuiPaper: {
-          root: {
-            backgroundColor: "#263039"
-          }
-        }
+const theme = createMuiTheme({
+  props: {
+    MuiSvgIcon: {
+      htmlColor: '#95b4bc',
+    }
+  },
+
+  overrides: {
+    MuiPaper: {
+      root: {
+        backgroundColor: "#cde1d8",
       },
-    palette: {
-    
-    background: {
-      default: "#263039",
     },
+    overrides: {
+      Avatar: {
+        root: {
+          defaultColor: "#eee7de",
+        },
+      },
+    },
+  },
+  palette: {
+    background: {
+      backgroundColor: "#cde1d8",
+    },
+   
     primary: {
-      main: "#7BABC5",
+      main: "#113034",
+      secondary: {
+        main: {
+          backgroundColor: "#d39fff",
+        },
+      },
     },
   },
 });
