@@ -3,7 +3,7 @@ const Trip = db.Trip;
 
 module.exports = {
   findAll: async function (req, res) {
-    let trips = await Trip.find(req.params.userId).sort({ start: -1 });
+    let trips = await Trip.find({ userId: req.query.userId }).sort({ start: -1 });
     res.json(trips);
   },
   findById: async function (req, res) {

@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     title:  String,
     message: String,
-    creator: String,
     tags: [String],
     selectedFile: String,
     rating: {
