@@ -23,6 +23,7 @@ export default function TripCard(props) {
                     <Typography variant="h6">End Date: {props.data.end}</Typography>
                 
                 <Button>Edit Itinerary</Button>
+                <Button>Archive</Button>
             </Paper>
         </Grid>
     );
