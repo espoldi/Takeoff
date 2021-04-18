@@ -11,7 +11,7 @@ const Posts = (props) => {
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {props.posts.map((post) => (
                     <Grid item xs={12} sm={6}>
-                        <Post post={post} key={post._id} />
+                        <Post post={post} handler={props.handler} key={post._id} />
                     </Grid>
                 ))}
             </Grid>
