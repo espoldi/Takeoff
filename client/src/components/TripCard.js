@@ -3,6 +3,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Divider, Grid, Paper, Typography } from '@material-ui/core';
 
+import { setWorkingTrip } from '../actions/tripActions';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
@@ -12,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function TripCard(props) {
+    let history = useHistory();
+    const dispatch = useDispatch();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await dispatch(setWorkingTrip(props.data._id));
+        history.push('/editor');
+    }
     const classes = useStyles();
     return (
         <Grid item xs>
@@ -22,7 +33,7 @@ export default function TripCard(props) {
                     <Typography variant="h6">Start Date: {props.data.start}</Typography>
                     <Typography variant="h6">End Date: {props.data.end}</Typography>
                 <Divider />
-                <Button color="primary">Edit</Button>
+                <Button onClick={handleSubmit} color="primary">Edit</Button>
                 <Button color="secondary">Archive</Button>
             </Paper>
         </Grid>
