@@ -77,7 +77,7 @@ export default function CheckboxListSecondary() {
           );
         })}
       </List>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" margin="dense">
         <InputLabel htmlFor="component-outlined"></InputLabel>
         <OutlinedInput
           id="component-outlined"
