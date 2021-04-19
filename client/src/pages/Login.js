@@ -10,7 +10,6 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core/";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { createStyles, withStyles } from "@material-ui/core/styles";
 
 import PropTypes from "prop-types";
@@ -22,7 +21,7 @@ import Copyright from "../components/Copyright";
 const styles = (theme) =>
   createStyles({
     root: {
-      height: "100vh",
+      height: "100vh"
     },
     image: {
       backgroundImage: "url(https://source.unsplash.com/collection/74439722)",
@@ -99,7 +98,7 @@ class Login extends Component {
     return (
       <Grid container component="main" className={classes.root}>
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} squarestyle={{color: '#113039'}}>
           <div className={classes.paper}>
             <Avatar
               className={classes.avatar}
@@ -107,7 +106,7 @@ class Login extends Component {
               src="/client/public/images/waves.png"
             />
 
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" style={{color: '#113034', fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: 'normal'}}>
               Sign in
             </Typography>
             <form className={classes.form} noValidate onSubmit={this.onSubmit}>
