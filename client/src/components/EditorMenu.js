@@ -1,22 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // Material UI
 import {
-    Accordion,
-    AccordionActions,
-    AccordionDetails,
-    AccordionSummary,
     Button,
-    Divider,
-    FormControl,
     Grid,
     IconButton,
-    InputLabel,
-    MenuItem,
-    Select,
+    Paper,
     Snackbar,
-    TextField,
-    Typography
+    TextField
 } from '@material-ui/core';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
@@ -76,72 +67,94 @@ export default function EditorMenu() {
     }, [workingTrip]);
 
     return (
-        <>
-            <h1>Itinerary Editor: {tripName} in {location}</h1>
+        <Paper>
+            <h1 align="center">Itinerary Editor: {tripName} in {location}</h1>
 
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                    disabled
-                    margin="normal"
-                    id="starting-date"
-                    label="Start Date"
-                    value={selectedStartDate}
-                    onChange={handleStartDateChange}
-                    KeyboardButtonProps={{
-                        'aria-label': 'start date',
-                    }}
-                />
+            <Grid container>
 
-                <KeyboardDatePicker
-                    disabled
-                    margin="normal"
-                    id="ending-date"
-                    label="End Date"
-                    value={selectedEndDate}
-                    onChange={handleEndDateChange}
-                    KeyboardButtonProps={{
-                        'aria-label': 'end date',
-                    }}
-                />
-            </MuiPickersUtilsProvider>
+                <Grid item xs={12} md={6}>
 
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Fragment>
-                    <DateTimePicker
-                        label="DateTimePicker"
-                        inputVariant="outlined"
-                        value={selectedItemDate}
-                        onChange={handleItemDateChange}
-                    />
-                </Fragment>
-            </MuiPickersUtilsProvider>
-            <TextField
-                id="itinerary-item"
-                label="Activity"
-                variant="outlined"
-            />
+                    <Grid container align="center">
+                        <Grid item xs={12}>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    disabled
+                                    margin="normal"
+                                    id="starting-date"
+                                    label="Start Date"
+                                    value={selectedStartDate}
+                                    onChange={handleStartDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'start date',
+                                    }}
+                                />
+                            </MuiPickersUtilsProvider>
+                        </Grid>
 
-            <Divider />
+                        <Grid item xs={12}>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    disabled
+                                    margin="normal"
+                                    id="ending-date"
+                                    label="End Date"
+                                    value={selectedEndDate}
+                                    onChange={handleEndDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'end date',
+                                    }}
+                                />
+                            </MuiPickersUtilsProvider>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-            <Button size="small" color="primary"
-                onClick={handleAddListClick}>Submit</Button>
-            <Snackbar
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                }}
-                open={addListOpen}
-                autoHideDuration={1500}
-                onClose={handleAddListClose}
-                message="Event Added Successfully!"
-                action={
-                    <React.Fragment>
-                        <IconButton size="small" aria-label="close" color="inherit" onClick={handleAddListClose}>
-                            <Close fontSize="small" />
-                        </IconButton>
-                    </React.Fragment>
-                }
-            />
-        </>
+                <Grid item xs={12} md={6}>
+
+                    <Grid container align="center">
+                        <Grid item xs={12}>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <DateTimePicker
+                                    label="DateTimePicker"
+                                    inputVariant="outlined"
+                                    value={selectedItemDate}
+                                    onChange={handleItemDateChange}
+                                />
+                            </MuiPickersUtilsProvider>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField
+                                id="itinerary-item"
+                                label="Activity"
+                                variant="outlined"
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}>
+                        <Button size="small" color="primary" align="right"
+                            onClick={handleAddListClick}>Submit</Button>
+                        <Snackbar
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            open={addListOpen}
+                            autoHideDuration={1500}
+                            onClose={handleAddListClose}
+                            message="Event Added Successfully!"
+                            action={
+                                <React.Fragment>
+                                    <IconButton size="small" aria-label="close" color="inherit" onClick={handleAddListClose}>
+                                        <Close fontSize="small" />
+                                    </IconButton>
+                                </React.Fragment>
+                            }
+                        />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Paper>
     );
 }
