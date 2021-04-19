@@ -10,12 +10,12 @@ import { getTrips } from '../actions/tripActions';
 export default function Dashboard() {
   const userId = useSelector(state => state.auth.user.id);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getTrips(userId));
-  }, [userId, dispatch]);
-
   const current = useSelector(state => state.trips.currentTrips);
   const archived = useSelector(state => state.trips.archivedTrips);
+
+  useEffect(() => {
+    dispatch(getTrips(userId));
+  }, []);
 
   return (
     <Container fixed>

@@ -1,4 +1,4 @@
-import { FETCH_ALL_TRIPS, CREATE_TRIP, UPDATE_TRIP, DELETE_TRIP } from './types/tripTypes';
+import { FETCH_ALL_TRIPS, CREATE_TRIP, UPDATE_TRIP, DELETE_TRIP, SET_CURRENT_TRIP } from './types/tripTypes';
 import * as api from '../api/trips';
 
 export const getTrips = (userId) => async (dispatch) => {
@@ -31,6 +31,24 @@ export const createTrip = (trip) => async (dispatch) => {
   try {
     const { data } = await api.createTrip(trip);
     dispatch({ type: CREATE_TRIP, payload: data })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const updateTrip = (id, trip) => async (dispatch) => {
+  try {
+      const { data } = await api.updatedTrip(id, trip);
+      dispatch({ type: UPDATE_TRIP, payload: data });
+  } catch (error) {
+      console.log(error);
+  }
+}
+
+export const setWorkingTrip = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.getTrip(id);
+    dispatch({ type: SET_CURRENT_TRIP, payload: data })
   } catch (error) {
     console.log(error);
   }
