@@ -1,4 +1,4 @@
-import { FETCH_ALL_TRIPS, CREATE_TRIP, UPDATE_TRIP, DELETE_TRIP }
+import { FETCH_ALL_TRIPS, CREATE_TRIP, UPDATE_TRIP, DELETE_TRIP, SET_CURRENT_TRIP }
   from '../actions/types/tripTypes';
 
 const initialState = {
@@ -28,6 +28,11 @@ function tripReducer(state = initialState, action) {
       return state.map((trip) => (trip._id === action.payload._id ? action.payload : trip));
     case DELETE_TRIP:
       return state.filter((trip) => trip._id !== action.payload);
+    case SET_CURRENT_TRIP:
+      return {
+        ...state,
+        workingTrip: action.payload
+      }
     default: 
       return state;
   }
