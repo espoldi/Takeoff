@@ -19,6 +19,7 @@ import {
     IconButton,
     Tooltip
 } from '@material-ui/core/';
+import moment from 'moment';
 import {RestoreFromTrash} from '@material-ui/icons/';
 
 function descendingComparator(a, b, orderBy) {
@@ -201,8 +202,8 @@ export default function Archive(props) {
         return {
             name: trip.name,
             location: trip.location,
-            start: trip.start,
-            end: trip.end
+            start: moment(trip.start).format('MM/DD/YYYY'),
+            end: moment(trip.end).format('MM/DD/YYYY')
         };
         
     })
