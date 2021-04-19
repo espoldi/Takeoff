@@ -3,6 +3,7 @@ import React from 'react';
 import {
     Avatar,
     Container,
+    Divider,
     Grid,
     IconButton,
     Paper,
@@ -42,6 +43,9 @@ export default function MeetTheTeam() {
                             <Container className={classes.center}>
                             <Avatar alt="Nardin Lachowski" src="https://avatars.githubusercontent.com/u/39885707?v=4" className={classes.pic} /></Container>
                             <Typography variant="h5" color="textSecondary">Nardin Lachowski</Typography>
+                            <Divider />
+                            <Typography variant="h6" color="textSecondary">Web Developer</Typography>
+                            <Typography variant="subtitle1" color="textSecondary">Back End</Typography>
                             <IconButton aria-label="Github" href="https://github.com/nard1n"><GithubIcon /></IconButton>
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/nardinl"><LinkedInIcon /></IconButton>
                         </Paper>
@@ -52,6 +56,9 @@ export default function MeetTheTeam() {
                             <Avatar alt="Adrienne Osorio" src="https://avatars.githubusercontent.com/u/72840388?v=4" className={classes.pic} />
                             </Container>
                             <Typography variant="h5" color="textSecondary">Adrienne Osorio</Typography>
+                            <Divider />
+                            <Typography variant="h6" color="textSecondary">Web Developer</Typography>
+                            <Typography variant="subtitle1" color="textSecondary">Front End</Typography>
                             <IconButton aria-label="Github" href="https://github.com/amo02008"><GithubIcon /></IconButton>
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/adrienne-osorio-jrdev"><LinkedInIcon /></IconButton>
                         </Paper>
@@ -62,6 +69,9 @@ export default function MeetTheTeam() {
                             <Avatar alt="Bill Soss" src="https://avatars.githubusercontent.com/u/58079883?v=4" className={classes.pic} />
                             </Container>
                             <Typography variant="h5" color="textSecondary">Bill Soss</Typography>
+                            <Divider />
+                            <Typography variant="h6" color="textSecondary">Web Developer</Typography>
+                            <Typography variant="subtitle1" color="textSecondary">Back End</Typography>
                             <IconButton aria-label="Github" href="https://github.com/sossw1"><GithubIcon /></IconButton>
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/william-soss/"><LinkedInIcon /></IconButton>
                         </Paper>
@@ -72,6 +82,9 @@ export default function MeetTheTeam() {
                             <Avatar alt="Emily Spoldi" src="https://avatars.githubusercontent.com/u/72423431?v=4" className={classes.pic} />
                             </Container>
                             <Typography variant="h5" color="textSecondary">Emily Spoldi</Typography>
+                            <Divider />
+                            <Typography variant="h6" color="textSecondary">Web Developer</Typography>
+                            <Typography variant="subtitle1" color="textSecondary">Front End</Typography>
                             <IconButton aria-label="Github" href="https://github.com/espoldi"><GithubIcon /></IconButton>
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/emily-spoldi/"><LinkedInIcon /></IconButton>
                         </Paper>
@@ -82,6 +95,9 @@ export default function MeetTheTeam() {
                             <Avatar alt="Adriana Valdiglesias" src="https://avatars.githubusercontent.com/u/73134344?v=4" className={classes.pic} />
                             </Container>
                             <Typography variant="h5" color="textSecondary">Adriana Valdiglesias</Typography>
+                            <Divider />
+                            <Typography variant="h6" color="textSecondary">Web Developer</Typography>
+                            <Typography variant="subtitle1" color="textSecondary">Front End</Typography>
                             <IconButton aria-label="Github" href="https://github.com/adrianavv1"><GithubIcon /></IconButton>
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/adriana-valdiglesias-962677184/"><LinkedInIcon /></IconButton>
                         </Paper>
