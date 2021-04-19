@@ -74,9 +74,10 @@ Users can also create blogs of their favorite travel memories and list destinati
  - "web-vitals": "^1.1.1"
 
 ## Installation Requirements
-Clone this rep and install the required packages with the following command.
+1.Clone this rep and install the required packages with the following command.
 ```npm install```
-Mkae sure your comman prompt in in the correct folder and type in the following to begin.
+
+2.Make sure your comman prompt in in the correct folder and type in the following to begin.
 ```npm start```
 
 ## Configuration
@@ -102,7 +103,7 @@ If you would like to contribute to this project, please submit a pull request.
 [Adriana Valdiglesias](https://github.com/adrianavv1)
 
 ## License
-This project is licensed under the MIT License-see the [License.md] file for details.
+This project is licensed under the MIT License. See the [License.md](./LICENSE) file for details.
 
 
 
