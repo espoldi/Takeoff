@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // Material UI
 import {
-    AppBar,
+    
     Container,
     Dialog,
     DialogContent,
@@ -68,9 +68,9 @@ export default function Blog() {
 
     return (
         <Container fixed>
-            {/* <AppBar className={classes.appBar} position="static" color="inherit"> */}
+          
                 <Typography className={classes.heading} variant="h2" align="center" style={{textDecoration: "none", color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontSize: "5rem", fontStyle: 'normal'}} > Blog </Typography>
-            {/* </AppBar> */}
+           
             <Grid container className={classes.mainContainer} justify="space-between" alignItems="stretch" spacing={3}>
                 <Posts posts={posts} handler={handleClickOpen} />
             </Grid>
