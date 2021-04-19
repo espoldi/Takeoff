@@ -21,13 +21,11 @@ const useStyles = makeStyles((theme) => ({
 function Current(props) {
     const classes = useStyles();
     return (
-        
         <div className={classes.root} >
-            
-            <Paper className={classes.paper} >
-                <Grid item xs={12} >
-                    <Typography variant="h4" color="textSecondary"gutterBottom="true">My Current Adventures</Typography>
-                </Grid>
+            <Paper className={classes.paper}>
+                <Grid item xs={12}>
+                    <Typography variant="h5" style={{textDecoration: "none", color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontSize: "3rem", fontStyle: 'normal'}}>My Current Adventures</Typography>
+               </Grid>
                 <Grid container spacing={4} >
                     {props.data.map((trip) => (
                         <Grid item xs={12} md={6} lg={4} >
