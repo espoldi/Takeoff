@@ -21,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column'
     },
     paper: {
-        padding: theme.spacing(2),
+        padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary
     },
+    
     pic: {
         width: theme.spacing(25),
         height: theme.spacing(25),
@@ -35,10 +36,11 @@ const useStyles = makeStyles((theme) => ({
 export default function MeetTheTeam() {
     const classes = useStyles();
     return (
-        <Container fixed>
+        <Container fixed >
             <div className={classes.root}>
-                <Grid container spacing={4}>
-                    <Grid item xs={6}>
+                <Grid container direction="row"  alignItems="center" spacing={4}>
+                    <Grid item xs={6}
+                     justify='center' >
                         <Paper className={classes.paper} elevation={3}>
                             <Container className={classes.center}>
                             <Avatar alt="Nardin Lachowski" src="https://avatars.githubusercontent.com/u/39885707?v=4" className={classes.pic} /></Container>
