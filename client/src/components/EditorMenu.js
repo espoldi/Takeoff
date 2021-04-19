@@ -140,7 +140,6 @@ export default function EditorMenu() {
                 </AccordionDetails>
                 <Divider />
                 <AccordionActions>
-                    <Button size="small">Cancel</Button>
                     <Button size="small" color="primary">Save</Button>
                 </AccordionActions>
             </Accordion>
@@ -195,9 +194,8 @@ export default function EditorMenu() {
                 </AccordionDetails>
                 <Divider />
                 <AccordionActions>
-                    <Button size="small">Cancel</Button>
                     <Button size="small" color="primary"
-                        onClick={handleAddListClick}>Save</Button>
+                        onClick={handleAddListClick}>Submit</Button>
                     <Snackbar
                         anchorOrigin={{
                             vertical: 'bottom',
