@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    textField: {
+        width: '100%',
+      },
 }));
 
 export default function EditorMenu() {
@@ -115,6 +118,7 @@ export default function EditorMenu() {
                         <Grid item xs={12}>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <DateTimePicker
+                                    className={classes.textField}
                                     label="DateTimePicker"
                                     inputVariant="outlined"
                                     value={selectedItemDate}
@@ -125,8 +129,11 @@ export default function EditorMenu() {
 
                         <Grid item xs={12}>
                             <TextField
+                                className={classes.textField}
                                 id="itinerary-item"
                                 label="Activity"
+                                multiline
+                                rows={4}
                                 variant="outlined"
                             />
                         </Grid>
