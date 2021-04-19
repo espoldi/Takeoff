@@ -13,7 +13,7 @@ const Post = (props) => {
     const dispatch = useDispatch();
 
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} style={{backgroundColor:"#ece3d4" }}>
             <CardMedia className={classes.media} image={props.post.selectedFile || 'https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'} title={props.post.title} />
             <div className={classes.overlay}>
                 <Typography variant="body2">{moment(props.post.createdAt).fromNow()}</Typography>
@@ -29,11 +29,11 @@ const Post = (props) => {
                 </Tooltip>
             </div>
             <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary">{props.post.tags.map((tag) => `#${tag} `)}</Typography>
+                <Typography variant="body2" color="textSecondary"style={{textDecoration: "none", color: "#113034", fontFamily:"nimbus-roman, serif", fontWeight: "600", fontStyle: 'normal'}}>{props.post.tags.map((tag) => `#${tag} `)}</Typography>
             </div>
-            <Typography className={classes.title} variant="h5" gutterBottom>{props.post.title}</Typography>
+            <Typography className={classes.title} variant="h5" style={{textDecoration: "none", color: "#113034", fontFamily:"nimbus-roman, serif", fontWeight: "600", fontStyle: 'normal'}} gutterBottom>{props.post.title}</Typography>
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">{props.post.message}</Typography>
+                <Typography variant="body2" color="textSecondary" style={{textDecoration: "none", color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "600", fontStyle: 'normal'}} component="p">{props.post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Tooltip title="Delete" aria-label="Delete">

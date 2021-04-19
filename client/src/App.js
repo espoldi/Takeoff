@@ -17,8 +17,12 @@ import MeetTheTeam from './pages/MeetTheTeam';
 import Contact from './pages/Contact';
 // Theme
 import Theme from "./utils/Theme";
-import { ThemeProvider } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+// Fonts
+// import  AWConquerorStdDidotBold from "../src/Fonts/AWConquerorStdDidotBold.Woff";
+
 // Router
 import {
   BrowserRouter as Router,
@@ -51,7 +55,7 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={Theme}>
+      <MuiThemeProvider theme={Theme}>
         <CssBaseline />
       <Provider store={store}>
         <Router>
@@ -74,7 +78,7 @@ class App extends Component {
           </Switch>
         </Router>
       </Provider>
-      </ThemeProvider>
+      </MuiThemeProvider>
     );
   }
 }

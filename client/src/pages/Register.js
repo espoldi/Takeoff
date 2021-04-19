@@ -91,7 +91,7 @@ class Register extends Component {
               src="/client/public/images/waves.png">
            
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{color: '#113034', fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: 'normal'}}>
             Sign up
           </Typography>
 
@@ -181,6 +181,7 @@ class Register extends Component {
           <Copyright />
         </Box>
       </Container>
+     
     );
   }
 }
