@@ -6,6 +6,7 @@ import Itinerary from '../components/Itinerary.js';
 import {
     Button,
     Container,
+    Divider,
     Grid,
     IconButton,
     Paper,
@@ -30,12 +31,14 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(1),
         backgroundColor: theme.palette.background.paper,
     },
-    heading: { fontSize: theme.typography.pxToRem(15) },
+    heading: {
+        fontSize: theme.typography.pxToRem(15)
+    },
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
     textField: {
-        width: '100%',
+        width: '90%'
     },
 }));
 
@@ -77,17 +80,17 @@ export default function ItineraryEditor() {
             <h1 align="center">Itinerary Editor: {tripName} in {location}</h1>
             <Paper>
                 <Grid container>
-
-                    <Grid item xs={12} md={6}>
-
+                    <Grid item xs={12} md={4}>
                         <Grid container align="center">
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sm={6}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <KeyboardDatePicker
                                         disabled
+                                        className={classes.textField}
                                         margin="normal"
                                         id="starting-date"
                                         label="Start Date"
+                                        format="MMM. dd, yyyy"
                                         value={selectedStartDate}
                                         onChange={handleStartDateChange}
                                         KeyboardButtonProps={{
@@ -97,13 +100,15 @@ export default function ItineraryEditor() {
                                 </MuiPickersUtilsProvider>
                             </Grid>
 
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sm={6}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <KeyboardDatePicker
                                         disabled
+                                        className={classes.textField}
                                         margin="normal"
                                         id="ending-date"
                                         label="End Date"
+                                        format="MMM. dd, yyyy"
                                         value={selectedEndDate}
                                         onChange={handleEndDateChange}
                                         KeyboardButtonProps={{
@@ -113,12 +118,12 @@ export default function ItineraryEditor() {
                                 </MuiPickersUtilsProvider>
                             </Grid>
                         </Grid>
-                    </Grid>
 
-                    <Grid item xs={12} md={6}>
+                        <Divider />
 
                         <Grid container align="center">
                             <Grid item xs={12}>
+                                <br />
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <DateTimePicker
                                         className={classes.textField}
@@ -131,6 +136,7 @@ export default function ItineraryEditor() {
                             </Grid>
 
                             <Grid item xs={12}>
+                                <br />
                                 <TextField
                                     className={classes.textField}
                                     id="itinerary-item"
@@ -141,9 +147,10 @@ export default function ItineraryEditor() {
                                 />
                             </Grid>
 
-                            <Grid item xs={12}>
+                            <Grid item xs={12} align="center">
                                 <Button size="small" color="primary" align="right"
                                     onClick={handleAddListClick}>Submit</Button>
+
                                 <Snackbar
                                     anchorOrigin={{
                                         vertical: 'bottom',
@@ -164,9 +171,13 @@ export default function ItineraryEditor() {
                             </Grid>
                         </Grid>
                     </Grid>
+                    <Grid item xs={12} md={8} align="center">
+                        <br />
+                        <Itinerary />
+                        <br />
+                    </Grid>
                 </Grid>
             </Paper>
-            <Itinerary />
         </Container>
     );
 }
