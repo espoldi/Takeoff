@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
       },
       heading: {
         color: "#eaf7f7",
+        marginBottom: "50px"
       },
       image: {
         marginLeft: '15px',
