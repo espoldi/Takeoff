@@ -18,10 +18,8 @@ import Contact from './pages/Contact';
 // Theme
 import Theme from "./utils/Theme";
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// Fonts
-// import  AWConquerorStdDidotBold from "../src/Fonts/AWConquerorStdDidotBold.Woff";
+
 
 // Router
 import {
