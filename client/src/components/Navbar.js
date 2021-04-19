@@ -127,14 +127,14 @@ const Navbar = () => {
   );
   return (
    <Box component="nav">
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: 'white'}}>
       <Toolbar>
         <IconButton edge="start" onClick={toggleSlider("left", true)}>
-          <FlightTakeoffIcon/>
+          <FlightTakeoffIcon style={{ fontSize: 35 }}/>
         </IconButton>
         <Typography variant="h5">
-          <Link to="/" style={{textDecoration: "none", color: "white" }}>
-          Takeoff
+          <Link to="/" style={{textDecoration: "none", color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontSize: "1.75rem", fontStyle: 'normal'}}>
+          TakeOff
           </Link>
         </Typography>
         <LeftMenuSlider
