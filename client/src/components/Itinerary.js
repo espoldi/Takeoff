@@ -15,7 +15,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100%',
+        width: '95%',
         marginLeft: theme.spacing(1),
         backgroundColor: theme.palette.background.paper,
     },
@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Itinerary(props) {
     const classes = useStyles();
-    const value = 0;
     const handleDelete = () => { 
         // given the id of the item, delete the entry at that spot
      };
