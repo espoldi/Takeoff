@@ -36,6 +36,15 @@ export const createTrip = (trip) => async (dispatch) => {
   }
 }
 
+export const updateTrip = (id, trip) => async (dispatch) => {
+  try {
+      const { data } = await api.updatedTrip(id, trip);
+      dispatch({ type: UPDATE_TRIP, payload: data });
+  } catch (error) {
+      console.log(error);
+  }
+}
+
 export const setWorkingTrip = (id) => async (dispatch) => {
   try {
     const { data } = await api.getTrip(id);
