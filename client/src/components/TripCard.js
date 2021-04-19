@@ -34,7 +34,8 @@ export default function TripCard(props) {
                     <Typography variant="h6">End Date: {props.data.end}</Typography>
                 <Divider />
                 <Button onClick={handleEditSubmit} color="primary">Edit</Button>
-                <Button color="secondary">Archive</Button>
+                <Button color="primary">Archive</Button>
+                <Button color="primary">Delete</Button>
             </Paper>
         </Grid>
     );
