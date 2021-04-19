@@ -25,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(12)
     },
     Avatar: {
-       justify:'center'
+       justifyContent:'center',
+       display:'flex',
+       marginL:'0 auto'
     },
     
 }));
@@ -33,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
 export default function MeetTheTeam() {
     const classes = useStyles();
     return (
-        <Container fixed>
+        <Container fixed >
             <div className={classes.root}>
                 <Grid container direction="row"  alignItems="center" spacing={4}>
                     <Grid item xs={6}
                      justify='center' >
                         <Paper className={classes.paper} elevation={3}>
-                            <Avatar alt="Nardin Lachowski" src="https://avatars.githubusercontent.com/u/39885707?v=4" className={classes.pic} />
+                            <Avatar alt="Nardin Lachowski" src="https://avatars.githubusercontent.com/u/39885707?v=4" className={classes.pic} display='inline-block'/>
                             <Typography variant="h5" color="textSecondary">Nardin Lachowski</Typography>
                             <Typography variant="h6" color="textSecondary">Web Developer</Typography>
                             <Typography variant="subtitle1" color="textSecondary">Back End</Typography>
