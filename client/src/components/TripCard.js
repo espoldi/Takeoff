@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TripCard(props) {
     let history = useHistory();
     const dispatch = useDispatch();
-    const handleSubmit = async (e) => {
+    const handleEditSubmit = async (e) => {
         e.preventDefault();
         await dispatch(setWorkingTrip(props.data._id));
         history.push('/editor');
@@ -33,7 +33,7 @@ export default function TripCard(props) {
                     <Typography variant="h6">Start Date: {props.data.start}</Typography>
                     <Typography variant="h6">End Date: {props.data.end}</Typography>
                 <Divider />
-                <Button onClick={handleSubmit} color="primary">Edit</Button>
+                <Button onClick={handleEditSubmit} color="primary">Edit</Button>
                 <Button color="secondary">Archive</Button>
             </Paper>
         </Grid>
