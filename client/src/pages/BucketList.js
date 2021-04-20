@@ -1,6 +1,7 @@
 import React from "react";
 // Material UI
 import {
+  Avatar,
   Box,
   Button,
   Checkbox,
@@ -14,11 +15,10 @@ import {
   ListItemSecondaryAction,
   ListItemText,
   OutlinedInput,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 }));
-
-
 
 export default function CheckboxListSecondary() {
   const classes = useStyles();
@@ -55,39 +53,45 @@ export default function CheckboxListSecondary() {
 
   return (
     <Container fixed align="center">
-      <Typography className={classes.heading}
-       variant="h2" 
-       align="center" 
-       style={{
-        marginTop:'50px', 
-        textDecoration: "none", 
-         color: "#113034", 
-         fontFamily:"aw-conqueror-didot", 
-         fontWeight: "900", 
-         fontSize: "5rem", 
-         fontStyle: 'normal'}} 
-         > My Bucket List </Typography>
+      <Typography
+        className={classes.heading}
+        variant="h2"
+        align="center"
+        style={{
+          marginTop: "50px",
+          textDecoration: "none",
+          color: "#113034",
+          fontFamily: "aw-conqueror-didot",
+          fontWeight: "900",
+          fontSize: "5rem",
+          fontStyle: "normal",
+        }}
+      >
+        {" "}
+        My Bucket List{" "}
+      </Typography>
+
       <List dense className={classes.root}>
-        {[0, 1, 2, 3].map((value) => {
+        {["Peru", "Japan", "Samoa", "Croatia"].map((value) => {
           const labelId = `checkbox-list-secondary-label-${value}`;
           return (
             <Box>
-            <ListItem key={value} button>
-              <ListItemAvatar>
-                <IconButton edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
-              </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-              <ListItemSecondaryAction>
-                <Checkbox
-                  edge="end"
-                  onChange={handleToggle(value)}
-                  checked={checked.indexOf(value) !== -1}
-                  inputProps={{ "aria-labelledby": labelId }}
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
+              <ListItem key={value} button>
+                <ListItemAvatar>
+                  <IconButton edge="end" aria-label="delete">
+                    <DeleteIcon />
+                  </IconButton>
+                </ListItemAvatar>
+                <ListItemText id={labelId} primary={`${value}`} />
+                <ListItemSecondaryAction>
+                  <Checkbox
+                    edge="end"
+                    onChange={handleToggle(value)}
+                    checked={checked.indexOf(value) !== -1}
+                    inputProps={{ "aria-labelledby": labelId }}
+                  />
+                </ListItemSecondaryAction>
+              </ListItem>
             </Box>
           );
         })}
@@ -100,10 +104,17 @@ export default function CheckboxListSecondary() {
           onChange={handleChange}
           label="Name"
         />
-        <Button variant="contained" color="primary" >
+        <Button variant="contained" color="primary">
           Add New Destination
         </Button>
       </FormControl>
+      <Box padding={5}>
+        <Avatar style={{ height: '150px', width: '150px' }}
+          alt="page under construction"
+          src="/client/public/images/coming-soon-2.png"
+        />
+        <p>The ability to add and delete locations is currently under construction.</p>
+      </Box>
     </Container>
   );
 }
