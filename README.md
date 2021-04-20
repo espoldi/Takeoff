@@ -1,6 +1,11 @@
-# TakeOff      
+# TakeOff
+
+<span align="center">
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![GitHub top language](https://img.shields.io/github/languages/top/amo02008/Takeoff)
+
+</span>
 
 <img src="client/public/images/apple-touch-icon.png" align="center" alt="airplane taking off" width="100" height="100" />
 
