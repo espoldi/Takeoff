@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://localhost:3030/api/posts';
+const url = '/api/posts';
 
 export const fetchPosts = (userId) => axios.get(url, { params: { userId } });
 export const fetchPost = (id) => axios.get(`${url}/${id}`);
