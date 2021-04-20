@@ -36,5 +36,5 @@ app.use(routes);
 
 //setting port for server use
 const PORT = process.env.PORT || 3030;
-
+// app listener
 app.listen(PORT, () => console.log(`Server listening on port ${PORT} !`));
