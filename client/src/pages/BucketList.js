@@ -108,6 +108,7 @@ export default function CheckboxListSecondary() {
           Add New Destination
         </Button>
       </FormControl>
+      <br />
       <Box padding={5}>
         <Avatar style={{ height: '150px', width: '150px' }}
           alt="page under construction"
