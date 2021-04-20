@@ -18,7 +18,7 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 //  };
 
 
-const theme = createMuiTheme({
+export const light = createMuiTheme({
   typography: {
     h1: {
     fontFamily: ['"Serif"','aw-conqueror-didot', 'Roboto'].join(','),
@@ -68,10 +68,65 @@ const theme = createMuiTheme({
   },
 });
 
+export const dark = createMuiTheme({
+  typography: {
+    h1: {
+    fontFamily: ['"Serif"','aw-conqueror-didot', 'Roboto'].join(','),
+    }
+  },
+  // overrides: {
+  //   MuiCssBaseline: {
+  //     '@global': {
+  //       '@font-face': [awconquerordidot],
+  //     },
+  //   }
+  // },
+
+  props: {
+    MuiSvgIcon: {
+      htmlColor: "#95b4bc",
+    },
+  },
+
+  overrides: { //containers
+    MuiPaper: {
+      root: {
+        backgroundColor: "#ccc8c1",
+      },
+    },
+    overrides: {
+      Avatar: {
+        root: {
+          defaultColor: "#eee7de",
+        },
+      },
+    },
+  },
+  palette: {
+    type: "dark",
+    
+
+    primary: {
+      main: "#113034",
+      secondary: {
+        main: {
+          backgroundColor: "#d39fff",
+        },
+      },
+    },
+  },
+});
+
+export const simpledark = createMuiTheme({
+  palette: {
+    type: "dark"
+  },
+})
+
+export default light
 // return (
 //   <ThemeProvider theme={theme}>
 //     {children}
 //   </ThemeProvider>
 // );
 
-export default theme;
