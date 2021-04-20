@@ -107,6 +107,7 @@ If you would like to contribute to this project, please submit a pull request.
 - Add a map for selecting your destination
 - Make it possible for blogs to be viewed by others
 - Creating a random location generator for those who need inspiration
+- Render error on login page if user input is not correct
 ## Contributors
 [Bill Soss](https://github.com/sossw1),
 [Emily Spoldi](https://github.com/espoldi),
