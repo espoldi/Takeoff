@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3030/api/trips';
+const url = 'https://localhost:3030/api/trips';
 
 export const fetchTrips = (userId) => axios.get(url, { params: { userId } });
 export const getTrip = (id) => axios.get(`${url}/${id}`);
