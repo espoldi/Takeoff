@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop:'50px',
         textAlign: 'center',
         color: theme.palette.text.secondary,
-        width:'100%'
+        width:'100%',
+        backgroundColor: '#ECE3D4'
         
     }
 }));

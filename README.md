@@ -1,5 +1,6 @@
 # TakeOff      
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![GitHub top language](https://img.shields.io/github/languages/top/amo02008/Takeoff)
 
 <img src="client/public/images/apple-touch-icon.png" align="center" alt="airplane taking off" width="100" height="100" />
 
@@ -16,8 +17,6 @@
 - [Configuration](#configuration)
 
 - [Usage](#usage)
-
-- [Development](#development)
 
 - [Contributing](#contributing)
 
@@ -74,17 +73,26 @@ Users can also create blogs of their favorite travel memories and list destinati
  - "web-vitals": "^1.1.1"
 
 ## Installation Requirements
-Clone this rep and install the required packages with the following command.
-```npm install```
-Mkae sure your comman prompt in in the correct folder and type in the following to begin.
-```npm start```
+
+You will need [Node.js](https://nodejs.org/en/) and [MongoDB](https://www.mongodb.com/try/download/community) installed.
+
+1. Clone this repo and install the required packages with the following command.
+```
+npm install
+```
+
+2. Make sure your command prompt in in the correct folder and type in the following to begin.
+```
+npm start
+```
 
 ## Configuration
 
+To configure this application for use, you should create a `.env` file with your database information. For convience, a sample enviroment variable file can be found in the root directory with the name of: `.env.example`.
 
 ## Usage
 
-## Developement
+You can click the [link] to the delpoyed app or clone this repo.
 
 ## Contributing
 If you would like to contribute to this project, please submit a pull request.
@@ -102,7 +110,7 @@ If you would like to contribute to this project, please submit a pull request.
 [Adriana Valdiglesias](https://github.com/adrianavv1)
 
 ## License
-This project is licensed under the MIT License-see the [License.md] file for details.
+This project is licensed under the MIT License. See the [License.md](./LICENSE) file for details.
 
 
 

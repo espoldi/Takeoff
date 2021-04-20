@@ -1,6 +1,7 @@
 import React from "react";
 // Material UI
 import {
+  Box,
   Button,
   Checkbox,
   Container,
@@ -13,6 +14,7 @@ import {
   ListItemSecondaryAction,
   ListItemText,
   OutlinedInput,
+  Typography
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -53,11 +55,23 @@ export default function CheckboxListSecondary() {
 
   return (
     <Container fixed align="center">
-      <h1>My Bucket List</h1>
+      <Typography className={classes.heading}
+       variant="h2" 
+       align="center" 
+       style={{
+        marginTop:'50px', 
+        textDecoration: "none", 
+         color: "#113034", 
+         fontFamily:"aw-conqueror-didot", 
+         fontWeight: "900", 
+         fontSize: "5rem", 
+         fontStyle: 'normal'}} 
+         > My Bucket List </Typography>
       <List dense className={classes.root}>
         {[0, 1, 2, 3].map((value) => {
           const labelId = `checkbox-list-secondary-label-${value}`;
           return (
+            <Box>
             <ListItem key={value} button>
               <ListItemAvatar>
                 <IconButton edge="end" aria-label="delete">
@@ -74,6 +88,7 @@ export default function CheckboxListSecondary() {
                 />
               </ListItemSecondaryAction>
             </ListItem>
+            </Box>
           );
         })}
       </List>
