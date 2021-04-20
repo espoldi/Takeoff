@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function CheckboxListSecondary() {
   const classes = useStyles();
   const [checked, setChecked] = React.useState([1]);
@@ -67,8 +66,10 @@ export default function CheckboxListSecondary() {
          fontSize: "5rem", 
          fontStyle: 'normal'}} 
          > My Bucket List </Typography>
+      
       <List dense className={classes.root}>
-        {[0, 1, 2, 3].map((value) => {
+        
+        {["Peru", "Japan", "Samoa", "Croatia"].map((value) => {
           const labelId = `checkbox-list-secondary-label-${value}`;
           return (
             <Box>
@@ -78,7 +79,7 @@ export default function CheckboxListSecondary() {
                   <DeleteIcon />
                 </IconButton>
               </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText id={labelId} primary={`${value}`} />
               <ListItemSecondaryAction>
                 <Checkbox
                   edge="end"
