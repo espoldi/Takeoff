@@ -157,10 +157,10 @@ class Login extends Component {
               </Grid>
               <Grid container mt={5}>
                 <Grid item xs={12} >
-                <Typography variant="h6" style={{color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: "normal"}} >
+                <Typography variant="h6" style={{color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "800", fontStyle: "normal"}} >
                     Plan your trips and save your memories with 
                   </Typography>
-                  <Typography variant="h6" style={{color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: "normal"}} >TAKE OFF </Typography>
+                  <Typography variant="h6" style={{color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "850", fontStyle: "normal"}} >TAKE OFF </Typography>
                 </Grid>
               </Grid>
                        
