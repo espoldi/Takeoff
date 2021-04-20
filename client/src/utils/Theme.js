@@ -1,4 +1,4 @@
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 export const light = createMuiTheme({
   typography: {
