@@ -16,7 +16,8 @@ import BucketList from './pages/BucketList';
 import MeetTheTeam from './pages/MeetTheTeam';
 import Contact from './pages/Contact';
 // Theme
-import Theme from "./utils/Theme";
+import { light, dark } from "./utils/Theme";
+import { createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -47,13 +48,25 @@ if (localStorage.jwtToken) {
   }
 }
 
+
 class App extends Component {
+  state = {
+    theme: false,
+    appliedTheme: light
+}
+changeTheme = () => {
+     const appliedTheme = createMuiTheme(this.state.theme ? light : dark)
+     this.setState({
+         theme: !this.state.theme,
+           appliedTheme: appliedTheme
+      })
+}
   componentDidMount() {
   }
 
   render() {
     return (
-      <MuiThemeProvider theme={Theme}>
+      <MuiThemeProvider theme={this.state.appliedTheme}>
         <CssBaseline />
       <Provider store={store}>
         <Router>
@@ -62,7 +75,7 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/register" component={Register} />
             <div>
-              <Navbar />
+              <Navbar theme = {this.state.theme}  changeTheme = {this.changeTheme}/>
 
               {/* Private Routes */}
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
