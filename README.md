@@ -74,10 +74,10 @@ Users can also create blogs of their favorite travel memories and list destinati
  - "web-vitals": "^1.1.1"
 
 ## Installation Requirements
-1.Clone this rep and install the required packages with the following command.
+1.Clone this repo and install the required packages with the following command.
 ```npm install```
 
-2.Make sure your comman prompt in in the correct folder and type in the following to begin.
+2.Make sure your command prompt in in the correct folder and type in the following to begin.
 ```npm start```
 
 ## Configuration
