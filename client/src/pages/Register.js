@@ -110,6 +110,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.name}
                 />
+                <span style={{color:"red"}}>{this.state.errors.name}</span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -123,6 +124,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.email}
                 />
+                <span style={{color:"red"}}>{this.state.errors.email}</span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -137,6 +139,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.password}
                 />
+                 <span style={{color:"red"}}>{this.state.errors.password}</span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -151,12 +154,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.password2}
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
+                 <span style={{color:"red"}}>{this.state.errors.password2}</span>
               </Grid>
             </Grid>
             <Button
