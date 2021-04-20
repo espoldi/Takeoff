@@ -25,7 +25,7 @@ function itineraryItemReducer(state = initialState, action) {
       };
     case DELETE_ITINERARY_ITEM:
       return {
-        itineraryItems: state.itineraryItems.filter((trip) => trip._id !== action.payload)
+        itineraryItems: state.itineraryItems.filter((item) => item._id !== action.payload)
       };
     default:
       return state;

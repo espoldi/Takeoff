@@ -53,3 +53,14 @@ export const setWorkingTrip = (id) => async (dispatch) => {
     console.log(error);
   }
 }
+
+export const deleteTrip = (id) => async (dispatch) => {
+  try {
+      await api.deleteTrip(id);
+
+      dispatch({ type: DELETE_TRIP, payload: id });
+
+  } catch (error) {
+      console.log(error);
+  }
+}

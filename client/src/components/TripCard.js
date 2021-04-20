@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Divider, Grid, Paper, Typography } from '@material-ui/core';
 import moment from 'moment';
-import { setWorkingTrip, updateTrip } from '../actions/tripActions';
+import { setWorkingTrip, updateTrip, deleteTrip } from '../actions/tripActions';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ export default function TripCard(props) {
         await dispatch(updateTrip(props.data._id, {archived: true}));
     }
     const handleDeleteSubmit = async () => {
-        await dispatch(setWorkingTrip(props.data._id));
+        await dispatch(deleteTrip(props.data._id));
     }
     const classes = useStyles();
     return (
@@ -40,7 +40,7 @@ export default function TripCard(props) {
                 <Divider />
                 <Button onClick={handleEditSubmit} color="primary">Edit</Button>
                 <Button onClick={handleArchiveSubmit} color="primary">Archive</Button>
-                <Button color="primary">Delete</Button>
+                <Button onClick={handleDeleteSubmit} color="primary">Delete</Button>
             </Paper>
         </Grid>
     );

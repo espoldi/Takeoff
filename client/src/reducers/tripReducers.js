@@ -31,7 +31,11 @@ function tripReducer(state = initialState, action) {
         archivedTrips: state.archivedTrips.map((trip) => (trip._id === action.payload._id ? action.payload : trip))
       };
     case DELETE_TRIP:
-      return state.filter((trip) => trip._id !== action.payload);
+      return {
+        ...state,
+        currentTrips: state.currentTrips.filter((trip) => trip._id !== action.payload),
+        archivedTrips: state.archivedTrips.filter((trip) => trip._id !== action.payload)
+      }
     case SET_CURRENT_TRIP:
       return {
         ...state,
