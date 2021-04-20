@@ -38,6 +38,7 @@ export default function MeetTheTeam() {
     return (
         <Container fixed >
             <div className={classes.root}>
+                <br/>
                 <Grid container direction="row"  alignItems="center" spacing={4}>
                     <Grid item xs={6}
                      justify='center' >

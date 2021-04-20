@@ -171,6 +171,7 @@ const Navbar = (props) => {
       </Grid>
       </Toolbar>
     </AppBar>
+    <Box borderBottom={2.75} style={{ color: "#113034" }}></Box>
   </Box>
   )  
 };
