@@ -2,6 +2,9 @@ import React, {useState} from "react";
 // import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { NavLink} from "react-router-dom";
+// dark mode
+import Brightness3Icon from "@material-ui/icons/Brightness3";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,6 +20,7 @@ import {
   Toolbar,
   Typography,
   Box,
+  Grid
 } from "@material-ui/core";
 
 import FlightTakeoffIcon from "@material-ui/icons/FlightTakeoff";
@@ -48,7 +52,9 @@ const useStyles =makeStyles ((theme) => ({
   }
 }));
   
-const Navbar = () => {
+const Navbar = (props) => {
+  const icon = !props.theme ? <Brightness7Icon /> : <Brightness3Icon />
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -129,6 +135,12 @@ const Navbar = () => {
    <Box component="nav">
     <AppBar position="static" style={{ background: 'white'}}>
       <Toolbar>
+      <Grid
+      justify="space-between" // Add it here :)
+      container 
+    >
+ <Grid item>
+   <Toolbar>
         <IconButton edge="start" onClick={toggleSlider("left", true)}>
           <FlightTakeoffIcon style={{ fontSize: 35 }}/>
         </IconButton>
@@ -143,6 +155,20 @@ const Navbar = () => {
         onClose={toggleSlider("left", false)}>
           {sideList("left")}
         </LeftMenuSlider>
+        </Toolbar>
+        </Grid>
+      <Grid item>
+        <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="mode"
+            
+            onClick={() => props.changeTheme(!props.theme)}
+          >
+            {icon}
+      </IconButton>
+      </Grid>
+      </Grid>
       </Toolbar>
     </AppBar>
   </Box>
