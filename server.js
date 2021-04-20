@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 //db config
-const db = require("./config/keys").mongoURI;
+const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.84m2b.mongodb.net/Cluster0?retryWrites=true&w=majority`;
 
 //connection to mongoDB
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB successfully connected"))
   .catch((error) => console.log(error.message));
 
