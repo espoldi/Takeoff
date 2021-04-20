@@ -40,7 +40,7 @@ export default function TripCard(props) {
                 <Divider />
                 <Button onClick={handleEditSubmit} color="primary">Edit</Button>
                 <Button onClick={handleArchiveSubmit} color="primary">Archive</Button>
-                <Button color="primary">Delete</Button>
+                <Button style={{ color: '#20b2aa', fontWeight: '750', fontFamily:"nimbus-roman, serif", }}>Delete</Button>
             </Paper>
         </Grid>
     );
