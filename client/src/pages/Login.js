@@ -155,6 +155,15 @@ class Login extends Component {
                   </p>
                 </Grid>
               </Grid>
+              <Grid container mt={5}>
+                <Grid item xs={12} >
+                <Typography variant="h6" style={{color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: "normal"}} >
+                    Plan your trips and save your memories with 
+                  </Typography>
+                  <Typography variant="h6" style={{color: "#113034", fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: "normal"}} >TAKE OFF </Typography>
+                </Grid>
+              </Grid>
+                       
               <Box mt={5}>
                 <Copyright />
               </Box>
