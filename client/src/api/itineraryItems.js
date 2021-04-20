@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://localhost:3030/api/itinerary';
+const url = '/api/itinerary';
 
 export const fetchItineraryItems = (tripId) => axios.get(url, { params: { tripId } });
 export const getItineraryItem = (id) => axios.get(`${url}/${id}`);

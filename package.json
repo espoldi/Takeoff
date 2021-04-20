@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/espodi/Takeoff/issues"
   },
-  "homepage": "https://takeoff333.herokuapp.com",
+  "homepage": "https://takeoff222.herokuapp.com",
   "devDependencies": {
     "concurrently": "^6.0.0",
     "nodemon": "^2.0.7"
