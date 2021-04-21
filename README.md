@@ -37,6 +37,14 @@ TakeOff is a travel planning and blog application. Users can keep track of curre
 
 Users can also create blogs of their favorite travel memories and list destinations for their future adventures.
 
+<br/>
+
+
+<img src='client/public/images/TakeoffDesktopScreenshot.png' width="700">
+
+### Log in on Desktop
+<br/>
+
 ## Server Dependencies
  - "@material-ui/core": "^4.11.3",
  - "@material-ui/icons": "^4.11.2",
@@ -93,11 +101,11 @@ npm start
 
 ## Configuration
 
-To configure this application for use, you should create a `.env` file with your database information. For convience, a sample enviroment variable file can be found in the root directory with the name of: `.env.example`.
+To configure this application for use, you should create a `.env` file with your database information. For convience, a sample enviroment variable file can be found in the root directory with the name of: `.env.sample`.
 
 ## Usage
 
-You can click the [link] to the delpoyed app or clone this repo.
+You can click the [link](https://takeoff123.herokuapp.com/) to the deployed app or clone this repo.
 
 ## Contributing
 If you would like to contribute to this project, please submit a pull request.
@@ -107,7 +115,7 @@ If you would like to contribute to this project, please submit a pull request.
 - Add a map for selecting your destination
 - Make it possible for blogs to be viewed by others
 - Creating a random location generator for those who need inspiration
-- Render error on login page if user input is not correct
+- Render error on login page if user input is incorrect
 ## Contributors
 [Bill Soss](https://github.com/sossw1),
 [Emily Spoldi](https://github.com/espoldi),
