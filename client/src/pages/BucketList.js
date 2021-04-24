@@ -19,6 +19,8 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
+// import { Image } from "src/backgroundImage/palmshadow.jpg";
+// import { CardMedia } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +28,18 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
     alignItems: "center",
+  },
+  background: {
+    // eslint-disable-next-line no-template-curly-in-string
+    // backgroundImage:
+    //   'url(${"https://as1.ftcdn.net/jpg/02/72/50/05/240_F_272500583_AodNBwboCGkKjgmvCKlJEqHClJso3h33.jpg"})',
+    // backgroundRepeat: "no-repeat",
+    // backgroundColor:
+    // theme.palette.type === "light"
+    //   ? theme.palette.grey[50]
+    //   : theme.palette.grey[900],
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
 }));
 
@@ -52,7 +66,15 @@ export default function CheckboxListSecondary() {
   };
 
   return (
-    <Container fixed align="center">
+    <Container fixed align="center"
+      style={{
+        backgroundImage: 'url("https://as1.ftcdn.net/jpg/02/72/50/05/240_F_272500583_AodNBwboCGkKjgmvCKlJEqHClJso3h33.jpg")',
+        backgroundSize: "cover",
+        Width: "500",
+        Height: "500",
+    // backgroundPosition: "center",
+      }}
+    >
       <Typography
         className={classes.heading}
         variant="h2"
@@ -110,11 +132,15 @@ export default function CheckboxListSecondary() {
       </FormControl>
       <br />
       <Box padding={5}>
-        <Avatar style={{ height: '150px', width: '150px' }}
+        <Avatar
+          style={{ height: "150px", width: "150px" }}
           alt="page under construction"
           src="/client/public/images/coming-soon-2.png"
         />
-        <p>The ability to add and delete locations is currently under construction.</p>
+        <p>
+          The ability to add and delete locations is currently under
+          construction.
+        </p>
       </Box>
     </Container>
   );
