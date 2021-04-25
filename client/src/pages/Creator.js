@@ -25,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
     width: "90%",
     marginLeft: theme.spacing(3),
     marginTop: theme.spacing(3),
-  
+
   },
   date: {
     width: '50%'
-    
+
   },
   button: {
-    alignItems:"center"
+    alignItems: "center"
   }
 }));
 
@@ -95,7 +95,7 @@ export default function ItineraryCreator(props) {
       <Container fixed>
         <Paper>
           <form onSubmit={handleSubmit}>
-            <Grid container>
+            <Grid container align="center">
               <Grid item xs={12}>
                 <TextField
                   className={classes.root}
@@ -120,8 +120,9 @@ export default function ItineraryCreator(props) {
                 />
               </Grid>
 
+              <Grid container>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <KeyboardDatePicker
                     className={classes.date}
                     margin="normal"
@@ -137,8 +138,9 @@ export default function ItineraryCreator(props) {
                   />
                 </Grid>
 
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <KeyboardDatePicker
+                    className={classes.date}
                     margin="normal"
                     id="ending-date"
                     label="End Date"
@@ -152,18 +154,20 @@ export default function ItineraryCreator(props) {
                   />
                 </Grid>
               </MuiPickersUtilsProvider>
+              </Grid>
 
-              <Button
-              className={classes.button}
-              
-                variant="contained"
-                color="primary"
-                size="large"
-                startIcon={<FlightTakeoffIcon />}
-                onClick={handleSubmit}
-              >
-                Takeoff
+              <Grid item xs>
+                <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  startIcon={<FlightTakeoffIcon />}
+                  onClick={handleSubmit}
+                >
+                  Takeoff
               </Button>
+              </Grid>
             </Grid>
           </form>
         </Paper>
