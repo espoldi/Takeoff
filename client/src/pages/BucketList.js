@@ -1,4 +1,5 @@
 import React from "react";
+import comingSoon from '../images/coming-soon-2.png';
 // Material UI
 import {
   Avatar,
@@ -112,7 +113,7 @@ export default function CheckboxListSecondary() {
       <Box padding={5}>
         <Avatar style={{ height: '150px', width: '150px' }}
           alt="page under construction"
-          src="/client/public/images/coming-soon-2.png"
+          src={comingSoon}
         />
         <p>The ability to add and delete locations is currently under construction.</p>
       </Box>

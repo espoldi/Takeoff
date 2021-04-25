@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import waves from '../images/waves.png';
 //Material UI
 import {
   Avatar,
@@ -103,7 +104,7 @@ class Login extends Component {
             <Avatar
               className={classes.avatar}
               alt="waves"
-              src="/client/public/images/waves.png"
+              src={waves}
             />
 
             <Typography component="h1" variant="h5" style={{color: '#113034', fontFamily:"aw-conqueror-didot", fontWeight: "900", fontStyle: 'normal'}}>
