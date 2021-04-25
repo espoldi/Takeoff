@@ -3,7 +3,7 @@ const BucketListItem = db.BucketListItem;
 
 module.exports = {
   findAll: async function (req, res) {
-    let items = await BucketListItem.find({ userId: req.body.userId });
+    let items = await BucketListItem.find({ userId: req.query.userId });
     res.json(items);
   },
   findById: async function (req, res) {
