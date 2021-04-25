@@ -17,14 +17,14 @@ function bucketReducer(state = initialState, action) {
       };
     case CREATE_BUCKETLIST_ITEM:
       return {
-        itineraryItems: [
-          ...state.itineraryItems,
+        bucketListItems: [
+          ...state.bucketListItems,
           action.payload
         ]
       };
     case DELETE_BUCKETLIST_ITEM:
       return {
-        itineraryItems: state.itineraryItems.filter((item) => item._id !== action.payload)
+        bucketListItems: state.bucketListItems.filter((item) => item._id !== action.payload)
       };
     default:
       return state;
