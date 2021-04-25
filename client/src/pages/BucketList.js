@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { getBucketItems } from '../actions/bucketActions';
 import comingSoon from '../images/coming-soon-2.png';
 // Material UI
 import {
@@ -31,6 +33,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CheckboxListSecondary() {
+  const dispatch = useDispatch();
+  const userId = useSelector(state => state.auth.user.id);
+  useEffect(() => {
+    dispatch(getBucketItems(userId));
+  }, []);
+  const bucketList = useSelector(state => state.bucket.bucketListItems);
+
   const classes = useStyles();
   const [checked, setChecked] = React.useState([1]);
 
@@ -73,22 +82,22 @@ export default function CheckboxListSecondary() {
       </Typography>
 
       <List dense className={classes.root}>
-        {["Peru", "Japan", "Samoa", "Croatia"].map((value) => {
-          const labelId = `checkbox-list-secondary-label-${value}`;
+        {bucketList.map((item) => {
+          const labelId = `checkbox-list-secondary-label-${item._id}`;
           return (
             <Box>
-              <ListItem key={value} button>
+              <ListItem key={item._id} button>
                 <ListItemAvatar>
                   <IconButton edge="end" aria-label="delete">
                     <DeleteIcon />
                   </IconButton>
                 </ListItemAvatar>
-                <ListItemText id={labelId} primary={`${value}`} />
+                <ListItemText id={labelId} primary={`${item.description}`} />
                 <ListItemSecondaryAction>
                   <Checkbox
                     edge="end"
-                    onChange={handleToggle(value)}
-                    checked={checked.indexOf(value) !== -1}
+                    onChange={handleToggle(item._id)}
+                    checked={checked.indexOf(item._id) !== -1}
                     inputProps={{ "aria-labelledby": labelId }}
                   />
                 </ListItemSecondaryAction>
