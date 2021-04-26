@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getBucketItems,
-  createBucketItem,
-  deleteBucketItem,
-} from "../actions/bucketActions";
-=======
 import { useDispatch, useSelector } from 'react-redux';
 import { getBucketItems, createBucketItem, deleteBucketItem } from '../actions/bucketActions';
->>>>>>> c5617385df99f1ab18a295fdb080c638a292d85f
 // Material UI
 import {
   Avatar,
@@ -43,19 +34,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CheckboxListSecondary() {
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const userId = useSelector((state) => state.auth.user.id);
-  useEffect(() => {
-    dispatch(getBucketItems(userId));
-  }, []);
-  const bucketList = useSelector((state) => state.bucket.bucketListItems);
-=======
   const userId = useSelector(state => state.auth.user.id);
   useEffect(() => {
     dispatch(getBucketItems(userId));
   }, []);
   const bucketList = useSelector(state => state.bucket.bucketListItems);
->>>>>>> c5617385df99f1ab18a295fdb080c638a292d85f
 
   const classes = useStyles();
   const [checked, setChecked] = useState([1]);
@@ -86,13 +69,8 @@ export default function CheckboxListSecondary() {
     e.preventDefault();
     const newItem = { description: name, userId };
     dispatch(createBucketItem(newItem));
-<<<<<<< HEAD
-    setName("");
-  };
-=======
     setName('');
   }
->>>>>>> c5617385df99f1ab18a295fdb080c638a292d85f
 
   return (
     <Container
@@ -133,15 +111,7 @@ export default function CheckboxListSecondary() {
             <Box>
               <ListItem key={item._id} button>
                 <ListItemAvatar>
-<<<<<<< HEAD
-                  <IconButton
-                    edge="end"
-                    aria-label="delete"
-                    onClick={() => handleDelete(item._id)}
-                  >
-=======
                   <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(item._id)}>
->>>>>>> c5617385df99f1ab18a295fdb080c638a292d85f
                     <DeleteIcon />
                   </IconButton>
                 </ListItemAvatar>
@@ -159,31 +129,14 @@ export default function CheckboxListSecondary() {
           );
         })}
       </List>
-<<<<<<< HEAD
-      <br />
-      <form onSubmit={onSubmit}>
-        <InputLabel align="center" htmlFor="component-outlined"></InputLabel>
-=======
       <form onSubmit={onSubmit}>
         <InputLabel htmlFor="component-outlined"></InputLabel>
->>>>>>> c5617385df99f1ab18a295fdb080c638a292d85f
         <OutlinedInput
           id="component-outlined"
           value={name}
           onChange={handleChange}
         />
-<<<<<<< HEAD
-        <br />
-        <br />
-        <Button
-          align="center"
-          variant="contained"
-          color="primary"
-          onClick={onSubmit}
-        >
-=======
         <Button variant="contained" color="primary" onClick={onSubmit}>
->>>>>>> c5617385df99f1ab18a295fdb080c638a292d85f
           Add New Destination
         </Button>
       </form>
