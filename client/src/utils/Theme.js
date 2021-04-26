@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 export const light = createMuiTheme({
-  typography: {
+  muiTypography: {
     h1: {
       fontFamily: ['"Serif"', "aw-conqueror-didot", "Roboto"].join(","),
     },
@@ -45,16 +45,10 @@ export const light = createMuiTheme({
 });
 
 export const dark = createMuiTheme({
-  typography: {
-    h1: {
-      fontFamily: ['"Serif"', "aw-conqueror-didot", "Roboto"].join(","),
-    },
-  },
-  
 
   props: {
     MuiSvgIcon: {
-      htmlColor: "#95b4bc",
+      htmlColor: "#C9D1D9",
     },
   },
 
@@ -62,34 +56,21 @@ export const dark = createMuiTheme({
     //containers
     MuiPaper: {
       root: {
-        backgroundColor: "#ccc8c1",
+        backgroundColor: "#2d333b",
       },
     },
     overrides: {
       Avatar: {
         root: {
-          defaultColor: "#eee7de",
+          defaultColor: "#C9D1D9",
         },
       },
     },
   },
   palette: {
     type: "dark",
+    color: "#OD1117",
 
-    primary: {
-      main: "#113034",
-      secondary: {
-        main: {
-          backgroundColor: "#d39fff",
-        },
-      },
-    },
-  },
-});
-
-export const simpledark = createMuiTheme({
-  palette: {
-    type: "dark",
   },
 });
 
