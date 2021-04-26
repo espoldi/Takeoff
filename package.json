@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/espodi/Takeoff.git"
+    "url": "git+https://github.com/espoldi/Takeoff.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/espodi/Takeoff/issues"
+    "url": "https://github.com/espoldi/Takeoff/issues"
   },
   "homepage": "https://takeoff222.herokuapp.com",
   "devDependencies": {
