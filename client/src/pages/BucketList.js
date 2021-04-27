@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { getBucketItems, createBucketItem, deleteBucketItem } from '../actions/bucketActions';
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getBucketItems,
+  createBucketItem,
+  deleteBucketItem,
+} from "../actions/bucketActions";
 // Material UI
 import {
   Avatar,
@@ -34,11 +38,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CheckboxListSecondary() {
   const dispatch = useDispatch();
-  const userId = useSelector(state => state.auth.user.id);
+  const userId = useSelector((state) => state.auth.user.id);
   useEffect(() => {
     dispatch(getBucketItems(userId));
   }, []);
-  const bucketList = useSelector(state => state.bucket.bucketListItems);
+  const bucketList = useSelector((state) => state.bucket.bucketListItems);
 
   const classes = useStyles();
   const [checked, setChecked] = useState([1]);
@@ -63,29 +67,21 @@ export default function CheckboxListSecondary() {
 
   const handleDelete = (id) => {
     dispatch(deleteBucketItem(id));
-  }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
     const newItem = { description: name, userId };
     dispatch(createBucketItem(newItem));
-    setName('');
-  }
+    setName("");
+  };
 
   return (
-    <Container
-      fixed
-      align="center"
+    <Container fixed align="center"
       style={{
-        backgroundImage:
-          'url("https://as1.ftcdn.net/jpg/02/72/49/94/500_F_272499478_1MouzCdyOsh3zOhB1plXxTzfmFLDG5v8.jpg")',
-        backgroundRepeat: "no repeat",
-        backgroundSize: "cover",
-        Width: "1000",
-        Height: "667",
-        backgroundPosition: "center",
+        backgroundImage: 'url("https://wallpapercave.com/wp/wp3200866.jpg")',
       }}
-    >
+      >
       <Typography
         className={classes.heading}
         variant="h2"
@@ -111,24 +107,31 @@ export default function CheckboxListSecondary() {
             <Box>
               <ListItem key={item._id} button>
                 <ListItemAvatar>
-                  <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(item._id)}>
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={() => handleDelete(item._id)}
+                  >
                     <DeleteIcon />
                   </IconButton>
                 </ListItemAvatar>
                 <ListItemText id={labelId} primary={`${item.description}`} />
-                <ListItemSecondaryAction>
+                {/* <ListItemSecondaryAction>
                   <Checkbox
                     edge="end"
                     onChange={handleToggle(item._id)}
                     checked={checked.indexOf(item._id) !== -1}
                     inputProps={{ "aria-labelledby": labelId }}
                   />
-                </ListItemSecondaryAction>
+                </ListItemSecondaryAction> */}
               </ListItem>
             </Box>
           );
         })}
       </List>
+
+      <br />
+
       <form onSubmit={onSubmit}>
         <InputLabel htmlFor="component-outlined"></InputLabel>
         <OutlinedInput
@@ -136,6 +139,8 @@ export default function CheckboxListSecondary() {
           value={name}
           onChange={handleChange}
         />
+        <br />
+        <br />
         <Button variant="contained" color="primary" onClick={onSubmit}>
           Add New Destination
         </Button>
