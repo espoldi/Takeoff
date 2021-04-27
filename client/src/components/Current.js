@@ -29,7 +29,7 @@ function Current(props) {
             variant="h5"
             style={{
               textDecoration: "none",
-              color: "#113034",
+              color: "#95b4bc",
               fontFamily: "aw-conqueror-didot",
               fontWeight: "900",
               fontSize: "3rem",

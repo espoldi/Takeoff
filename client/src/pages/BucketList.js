@@ -89,7 +89,7 @@ export default function CheckboxListSecondary() {
         style={{
           marginTop: "50px",
           textDecoration: "none",
-          color: "#113034",
+          color: "#95b4bc",
           fontFamily: "aw-conqueror-didot",
           fontWeight: "900",
           fontSize: "5rem",
