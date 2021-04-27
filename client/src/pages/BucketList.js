@@ -20,6 +20,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
+import corkboard from "../images/cork-board.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,7 +72,10 @@ export default function CheckboxListSecondary() {
   }
 
   return (
-    <Container fixed align="center">
+    <Container fixed align="center" style={{
+      backgroundImage: `url(${corkboard})`
+    }}
+    >
       <Typography
         className={classes.heading}
         variant="h2"
@@ -79,7 +83,7 @@ export default function CheckboxListSecondary() {
         style={{
           marginTop: "50px",
           textDecoration: "none",
-          color: "#113034",
+          color: "#95b4bc",
           fontFamily: "aw-conqueror-didot",
           fontWeight: "900",
           fontSize: "5rem",
@@ -115,6 +119,7 @@ export default function CheckboxListSecondary() {
           );
         })}
       </List>
+      <br />
       <form onSubmit={onSubmit}>
         <InputLabel htmlFor="component-outlined"></InputLabel>
         <OutlinedInput
@@ -122,10 +127,13 @@ export default function CheckboxListSecondary() {
           value={name}
           onChange={handleChange}
         />
+        <br />
+        <br />
         <Button variant="contained" color="primary" onClick={onSubmit}>
           Add New Destination
         </Button>
       </form>
+      <br />
     </Container>
   );
 }

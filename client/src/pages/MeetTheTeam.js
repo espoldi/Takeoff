@@ -40,7 +40,7 @@ export default function MeetTheTeam() {
             <div className={classes.root}>
                 <br/>
                 <Grid container direction="row"  alignItems="center" spacing={4}>
-                    <Grid item xs={6}
+                    <Grid item xs={12} sm={6}
                      justify='center' >
                         <Paper className={classes.paper} elevation={3}>
                             <Container className={classes.center}>
@@ -53,7 +53,7 @@ export default function MeetTheTeam() {
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/nardinl"><LinkedInIcon /></IconButton>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper} elevation={3}>
                         <Container className={classes.center}>
                             <Avatar alt="Adrienne Osorio" src="https://avatars.githubusercontent.com/u/72840388?v=4" className={classes.pic} />
@@ -66,7 +66,7 @@ export default function MeetTheTeam() {
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/adrienne-osorio-jrdev"><LinkedInIcon /></IconButton>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper} elevation={3}>
                         <Container className={classes.center}>
                             <Avatar alt="Bill Soss" src="https://avatars.githubusercontent.com/u/58079883?v=4" className={classes.pic} />
@@ -79,7 +79,7 @@ export default function MeetTheTeam() {
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/william-soss/"><LinkedInIcon /></IconButton>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper} elevation={3}>
                         <Container className={classes.center}>
                             <Avatar alt="Emily Spoldi" src="https://avatars.githubusercontent.com/u/72423431?v=4" className={classes.pic} />
@@ -92,7 +92,7 @@ export default function MeetTheTeam() {
                             <IconButton aria-label="LinkedIn" href="https://www.linkedin.com/in/emily-spoldi/"><LinkedInIcon /></IconButton>
                         </Paper>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <Paper className={classes.paper} elevation={3}>
                         <Container className={classes.center}>
                             <Avatar alt="Adriana Valdiglesias" src="https://avatars.githubusercontent.com/u/73134344?v=4" className={classes.pic} />

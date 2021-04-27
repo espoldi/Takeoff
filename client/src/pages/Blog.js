@@ -78,7 +78,7 @@ export default function Blog() {
         align="center"
         style={{
           textDecoration: "none",
-          color: "#113034",
+          color: "#95b4bc",
           fontFamily: "aw-conqueror-didot",
           fontWeight: "900",
           fontSize: "5rem",
