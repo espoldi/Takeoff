@@ -49,7 +49,6 @@ Users can also create blogs of their favorite travel memories and list destinati
  - "@material-ui/core": "^4.11.3",
  - "@material-ui/icons": "^4.11.2",
  - "axios": "^0.21.1",
- - "bcrypt": "^5.0.1",
  - "bcryptjs": "^2.4.3",
  - "body-parser": "^1.19.0",
  - "cors": "^2.8.5",
