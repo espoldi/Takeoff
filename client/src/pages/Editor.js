@@ -104,8 +104,8 @@ export default function ItineraryEditor() {
           textDecoration: "none",
           color: "#95b4bc",
           fontFamily: "aw-conqueror-didot",
-          fontWeight: "900",
-          fontSize: "5rem",
+          fontWeight: "500",
+          fontSize: "4rem",
           fontStyle: "normal"}}>Itinerary Editor: {tripName} in {location}</h1>
       <Paper>
         <Grid container>
