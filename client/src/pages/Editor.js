@@ -99,14 +99,14 @@ export default function ItineraryEditor() {
 
   return (
     <Container fixed>
-      <h1 align="center"  
+      <h2 align="center"  
       style={{
           textDecoration: "none",
           color: "#95b4bc",
           fontFamily: "aw-conqueror-didot",
-          fontWeight: "900",
-          fontSize: "5rem",
-          fontStyle: "normal"}}>Itinerary Editor: {tripName} in {location}</h1>
+          fontWeight: "700",
+          fontSize: "4rem",
+          fontStyle: "normal"}}>Itinerary Editor: {tripName} in {location}</h2>
       <Paper>
         <Grid container>
           <Grid item xs={12} md={4}>
