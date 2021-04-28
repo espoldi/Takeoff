@@ -22,8 +22,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "90%",
-    marginLeft: theme.spacing(3),
+    width: "100%",
+    maxWidth: 360,
+   
+    // marginLeft: theme.spacing(3),
     marginTop: theme.spacing(3),
 
   },
@@ -33,7 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     alignItems: "center"
+  },
+  heading :{
+    marginTop: "25px",
+    marginBottom: "25px",
+    padding: "5px"
   }
+  
 }));
 
 export default function ItineraryCreator(props) {
@@ -76,16 +84,17 @@ export default function ItineraryCreator(props) {
   return (
     <Container fixed>
       <Typography
+      className={classes.heading}
         variant="h2"
         align="center"
         style={{
           textDecoration: "none",
           color: "#95b4bc",
           fontFamily: "aw-conqueror-didot",
-          fontWeight: "900",
-          fontSize: "5rem",
+          fontWeight: "850",
+          fontSize: "4rem",
           fontStyle: "normal",
-          marginTop: "50px",
+                   
         }}
       >
         {" "}
