@@ -21,6 +21,8 @@ import {
 } from '@material-ui/core/';
 import moment from 'moment';
 import {RestoreFromTrash} from '@material-ui/icons/';
+import { updateTrip } from '../actions/tripActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -256,9 +258,16 @@ export default function Archive(props) {
         setPage(0);
     };
 
+    const dispatch = useDispatch();
+    const archived = useSelector(state => state.trips.archivedTrips);
+
     const handleReactivateTrip = (arr) => {
       arr.forEach((item) => {
-        
+        archived.forEach((trip) => {
+          if(item === trip.name) {
+            dispatch(updateTrip(trip._id, {archived: false}));
+          }
+        })
       })
     }
 
