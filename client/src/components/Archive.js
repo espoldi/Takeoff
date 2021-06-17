@@ -151,7 +151,7 @@ const EnhancedTableToolbar = (props) => {
             {numSelected > 0 ? (
                 <Tooltip title="Restore">
                     <IconButton aria-label="restore" onClick={() => {
-                        alert('RESTORE ME')
+                        props.onClick(props.selected);
                         }}>
                         <RestoreFromTrash />
                     </IconButton>
@@ -256,6 +256,12 @@ export default function Archive(props) {
         setPage(0);
     };
 
+    const handleReactivateTrip = (arr) => {
+      arr.forEach((item) => {
+        
+      })
+    }
+
     const isSelected = (name) => selected.indexOf(name) !== -1;
 
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -263,7 +269,11 @@ export default function Archive(props) {
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
-                <EnhancedTableToolbar numSelected={selected.length} />
+                <EnhancedTableToolbar
+                  numSelected={selected.length}
+                  onClick={handleReactivateTrip}
+                  selected={selected}
+                />
                 <TableContainer>
                     <Table
                         className={classes.table}
