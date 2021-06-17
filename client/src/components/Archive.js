@@ -21,6 +21,8 @@ import {
 } from '@material-ui/core/';
 import moment from 'moment';
 import {RestoreFromTrash} from '@material-ui/icons/';
+import { updateTrip } from '../actions/tripActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -151,7 +153,7 @@ const EnhancedTableToolbar = (props) => {
             {numSelected > 0 ? (
                 <Tooltip title="Restore">
                     <IconButton aria-label="restore" onClick={() => {
-                        alert('RESTORE ME')
+                        props.onClick(props.selected);
                         }}>
                         <RestoreFromTrash />
                     </IconButton>
@@ -256,6 +258,19 @@ export default function Archive(props) {
         setPage(0);
     };
 
+    const dispatch = useDispatch();
+    const archived = useSelector(state => state.trips.archivedTrips);
+
+    const handleReactivateTrip = (arr) => {
+      arr.forEach((item) => {
+        archived.forEach((trip) => {
+          if(item === trip.name) {
+            dispatch(updateTrip(trip._id, {archived: false}));
+          }
+        })
+      })
+    }
+
     const isSelected = (name) => selected.indexOf(name) !== -1;
 
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -263,7 +278,11 @@ export default function Archive(props) {
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
-                <EnhancedTableToolbar numSelected={selected.length} />
+                <EnhancedTableToolbar
+                  numSelected={selected.length}
+                  onClick={handleReactivateTrip}
+                  selected={selected}
+                />
                 <TableContainer>
                     <Table
                         className={classes.table}
